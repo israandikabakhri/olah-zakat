@@ -1,5 +1,8 @@
-# zakat-ta Versi Beta
-Zakat Ta Adalah Aplikasi Pengelolaan, Monitoring dan Evaluasi Data Zakat (Fitrah/Mal), Infaq Dan Sedaqoh Khusus Kepanitiaan Masjid.
+# Judul
+Project Aplikasi Pengelolaan, Monitoring dan Evaluasi Data Zakat (Fitrah/Mal), Infaq Dan Sedaqoh (ZIS) Khusus Kepanitiaan Masjid.
+
+# Nama Aplikasi
+  (Belum Ada)
 
 # Latar Belakang Masalah Dan Analisis Masalah
 
@@ -57,7 +60,7 @@ Maka dari masalah diatas kami menawarkan Ide yang kami harapkan jadi sebuah solu
 Maka dari itu kami menawarkan anda untuk menjadi bagian dari inovasi ini serta sama-sama menyelesaikan permasalahan diatas untuk kepentingan ummat. Untuk itu silahkan mengajukan pernawaran kaloborasi di email saya andikaisra7@gmail.com
 
 ## Keahlian Yang Kami Cari
-   1. Web Programmer (Laravel)
+   1. Web Programmer
    2. Desain Grafis
    3. Videografer
    4. Ahli SEO
