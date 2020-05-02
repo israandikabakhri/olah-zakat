@@ -1,8 +1,8 @@
-# Judul
+# Judul Project
 Project Aplikasi Pengelolaan, Monitoring dan Evaluasi Data Zakat (Fitrah/Mal), Infaq Dan Sedaqoh (ZIS) Khusus Kepanitiaan Masjid.
 
 # Nama Aplikasi
-  (Belum Ada)
+  Olah Zakat
 
 # Latar Belakang Masalah Dan Analisis Masalah
 
@@ -40,7 +40,6 @@ Maka dari masalah diatas kami menawarkan Ide yang kami harapkan jadi sebuah solu
      - Mengetahui Banyak Kupon Yang Dibuat untuk penerima zakat fitrah.
      - Mengetahui Jumlah uang infaq dan sedekah yang tersetor.
      - Mengetahui jumlah Total Beras dan uang dalam bentuk zakat fitrah.
-     - Mengetahui jumlah total uang yang mau diubah jadi beras (tergantung permintaan jamaah).
      - Mengetahui jumlah setoran zakat malnya.
      - Mengetahui Data secara lengkap yang berhak menerima zakat fitrah/infaq/sedekah.
      - Mengetahui realisasi pembagian zakat fitrah/infaq/sedekah.
