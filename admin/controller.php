@@ -7,6 +7,8 @@
 	$page    = $_GET['page'];
 	$action  = $_GET['action'];
 
+
+    /// PANITIA
 	if($page == "panitia" && $action == "insert")
 	{
 		  
@@ -80,6 +82,110 @@
 
 		      		echo '<script language="javascript"> 
 		      				window.location.href = "'.$base_url_back.'/panitia.php" 
+		      			 </script>';
+
+		  }else{
+
+			      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+			  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
+			  
+		  
+		  }
+
+
+    /// PENYETORAN
+	}elseif($page == "penyetoran" && $action == "insert")
+	{
+		  
+		  $id_user            = $_SESSION['id'];
+		  $tgl                = $_POST['tgl'];
+		  $nama_muzakki       = $_POST['nama_muzakki'];
+		  $alamat             = $_POST['alamat'];
+		  $jumlah_jiwa        = $_POST['jumlah_jiwa'];
+		  $zakat_fitrah_beras = $_POST['zakat_fitrah_beras'];
+		  $zakat_fitrah_uang  = $_POST['zakat_fitrah_uang'];
+		  $zakat_mal		  = $_POST['zakat_mal'];
+		  $infaq_sedekah      = $_POST['infaq_sedekah'];
+		  $arah_infaqsedekah  = $_POST['arah_infaqsedekah'];
+		  $fidyah             = $_POST['fidyah'];
+
+		  $result = mysqli_query($mysqli, "INSERT INTO tb_setoran_zis 
+		  	                                (id, id_user, tgl, nama_muzakki, alamat, jumlah_jiwa, zakat_fitrah_beras,
+		  	                                zakat_fitrah_uang, zakat_mal, infaq_sedekah, arah_infaqsedekah, fidyah) 
+			                                VALUES
+			                                (null, $id_user, '$tgl', '$nama_muzakki', 'alamat', '$jumlah_jiwa', '$zakat_fitrah_beras',
+			                                '$zakat_fitrah_uang', '$zakat_mal', '$infaq_sedekah', '$arah_infaqsedekah', '$fidyah')");
+		  
+		  if($result){ 
+		      echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/penyetoran.php" </script>';
+		  }else{
+		      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+		  }
+
+	
+	}elseif($page == "penyetoran" && $action == "update")
+	{
+
+		  $id                 = $_POST['id'];
+		  $tgl                = $_POST['tgl'];
+		  $nama_muzakki       = $_POST['nama_muzakki'];
+		  $alamat             = $_POST['alamat'];
+		  $jumlah_jiwa        = $_POST['jumlah_jiwa'];
+		  $zakat_fitrah_beras = $_POST['zakat_fitrah_beras'];
+		  $zakat_fitrah_uang  = $_POST['zakat_fitrah_uang'];
+		  $zakat_mal		  = $_POST['zakat_mal'];
+		  $infaq_sedekah      = $_POST['infaq_sedekah'];
+		  $arah_infaqsedekah  = $_POST['arah_infaqsedekah'];
+		  $fidyah             = $_POST['fidyah'];
+
+
+
+				  $result = mysqli_query($mysqli, "UPDATE tb_setoran_zis
+				  									SET 
+				  									   tgl                = '$tgl',
+				  									   nama_muzakki       = '$nama_muzakki',
+				  									   alamat 			  = '$alamat',
+				  									   jumlah_jiwa 		  = '$jumlah_jiwa',
+				  									   zakat_fitrah_beras = '$zakat_fitrah_beras',
+				  									   zakat_fitrah_uang  = '$zakat_fitrah_uang',
+				  									   zakat_mal 		  = '$zakat_mal',
+				  									   infaq_sedekah 	  = '$infaq_sedekah',
+				  									   arah_infaqsedekah  = '$arah_infaqsedekah',
+				  									   fidyah 			  = '$fidyah'
+				  									   WHERE id = $id
+				  									") or die(mysqli_error($mysqli));
+
+
+
+		  
+		  if(isset($result)){ 
+
+		      		echo '<script language="javascript"> 
+		      				window.location.href = "'.$base_url_back.'/penyetoran.php" 
+		      			 </script>';
+
+		  }else{
+
+			      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+			  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
+			  
+		  
+		  }
+
+	}elseif($page == "penyetoran" && $action == "delete")
+	{
+
+		  $ID = $_GET['id'];
+
+
+				  $result = mysqli_query($mysqli, "DELETE FROM tb_setoran_zis WHERE id = $ID
+				  									") or die(mysqli_error($mysqli));
+
+		  
+		  if(isset($result)){ 
+
+		      		echo '<script language="javascript"> 
+		      				window.location.href = "'.$base_url_back.'/penyetoran.php" 
 		      			 </script>';
 
 		  }else{
