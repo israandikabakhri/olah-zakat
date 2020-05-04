@@ -196,7 +196,88 @@
 		  
 		  }
 
-	}
+	/// PENERIMA
+	}elseif($page == "penerima" && $action == "insert")
+	{
+		  
+		  $id_user       = $_SESSION['id'];
+		  $no_kk         = $_POST['no_kk'];
+		  $nama_penerima = $_POST['nama_penerima'];
+		  $jumlah_jiwa   = $_POST['jumlah_jiwa'];
+		  $alamat 		 = $_POST['alamat'];
+
+		  $result = mysqli_query($mysqli, "INSERT INTO tb_penerima_zis (id, id_user, no_kk, nama_penerima, jumlah_jiwa, alamat) 
+			                               VALUES(null, $id_user, '$no_kk', '$nama_penerima', $jumlah_jiwa, '$alamat')");
+		  
+		  if($result){ 
+		      echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/penerima.php" </script>';
+		  }else{
+		      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+		  }
+
+	
+	}elseif($page == "penerima" && $action == "update")
+	{
+
+		  $id            = $_POST['id'];
+		  $no_kk         = $_POST['no_kk'];
+		  $nama_penerima = $_POST['nama_penerima'];
+		  $jumlah_jiwa   = $_POST['jumlah_jiwa'];
+		  $alamat 		 = $_POST['alamat'];
+
+
+
+				  $result = mysqli_query($mysqli, "UPDATE tb_penerima_zis
+				  									SET 
+				  									   no_kk          = '$no_kk',
+				  									   nama_penerima  = '$nama_penerima',
+				  									   jumlah_jiwa    = '$jumlah_jiwa',
+				  									   alamat 		  = '$alamat'
+				  									   WHERE id = $id
+				  									") or die(mysqli_error($mysqli));
+
+
+
+		  
+		  if(isset($result)){ 
+
+		      		echo '<script language="javascript"> 
+		      				window.location.href = "'.$base_url_back.'/penerima.php" 
+		      			 </script>';
+
+		  }else{
+
+			      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+			  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
+			  
+		  
+		  }
+
+	}elseif($page == "penerima" && $action == "delete")
+	{
+
+		  $ID = $_GET['id'];
+
+
+				  $result = mysqli_query($mysqli, "DELETE FROM tb_penerima_zis WHERE id = $ID
+				  									") or die(mysqli_error($mysqli));
+
+		  
+		  if(isset($result)){ 
+
+		      		echo '<script language="javascript"> 
+		      				window.location.href = "'.$base_url_back.'/penerima.php" 
+		      			 </script>';
+
+		  }else{
+
+			      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+			  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
+			  
+		  
+		  }
+
+    }
 	
 
 ?>

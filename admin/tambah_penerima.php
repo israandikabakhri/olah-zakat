@@ -3,7 +3,7 @@
 
 
 
-<form action="controller.php?page=penyetoran&action=insert" id="form_proposal" enctype="multipart/form-data" method="post">
+<form action="controller.php?page=penerima&action=insert" id="form_proposal" enctype="multipart/form-data" method="post">
 
     <section class="mbr-section mbr-section-hero mbr-section-full mbr-after-navbar" id="header1-1" style="background-color: rgb(255, 255, 255);">
         <div class="mbr-table-cell">
@@ -17,7 +17,7 @@
                 <div class="row">
 
                     <div class="mbr-section col-md-12 col-lg-offset-4 col-lg-8 col-xl-offset-0 col-xl-12" id="ringkasan" style="padding-bottom: 0px !important;">
-                        <h4 class="mbr-section-title display-3">Tambah Data Penyetoran ZIS</h4>
+                        <h4 class="mbr-section-title display-3">Tambah Penerima ZIS</h4>
 
                         <hr>
 
@@ -25,19 +25,43 @@
                             <div class='row'>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        Tanggal Penyetoran
-                                        <input type="date" class="form-control" name="tgl" placeholder="Tanggal Penyetoran.." required>
+                                        No KK
+                                        <input type="text" class="form-control" name="no_kk" placeholder="No KK.." required>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+
                         <div class="mbr-section-text">
                             <div class='row'>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        Nama Muzakki
-                                        <input type="text" class="form-control" name="nama_muzakki" placeholder="nama Muzakki.." required>
+                                        Nama Penerima
+                                        <input type="text" class="form-control" name="nama_penerima" placeholder="Nama Penerima.." required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                          function onlyNumbers(evt) {
+                            var e = event || evt;
+                            var charCode = e.which || e.keyCode;
+
+                            if(charCode > 31 && (charCode < 48 || charCode > 57))
+                              return false;
+                              return true;
+
+                          }
+                        </script>
+
+                        <div class="mbr-section-text">
+                            <div class='row'>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        Jumlah Jiwa (Org)
+                                        <input type="number" onkeypress="return onlyNumbers();" class="form-control" name="jumlah_jiwa" placeholder="Jumlah Jiwa.." required>
                                     </div>
                                 </div>
                             </div>
@@ -55,114 +79,12 @@
                         </div>
 
                         <div class="mbr-section-text">
-                            <div class='row'>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        Jumlah Jiwa (Orang)
-                                        <input type="number" class="form-control" name="jumlah_jiwa" placeholder="Jumlah Jiwa.." required onkeypress="return onlyNumbers();" value="0" min="0">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mbr-section-text">
-                            <div class='row'>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        Total Jumlah Zakat Beras (Liter)
-                                        <input type="number" class="form-control" name="zakat_fitrah_beras" placeholder="Total Jumlah Zakat Beras.." required onkeypress="return onlyNumbers();" value="0" min="0">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mbr-section-text">
-                            <div class='row'>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        Total Jumlah Zakat Uang (Rp)
-                                        <input type="number" class="form-control" name="zakat_fitrah_uang" placeholder="Total Jumlah Zakat Uang.." required onkeypress="return onlyNumbers();" value="0" min="0">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mbr-section-text">
-                            <div class='row'>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        Total Jumlah Zakat Mal (Rp)
-                                        <input type="number" class="form-control" name="zakat_mal" placeholder="Total Jumlah Zakat Mal.." required onkeypress="return onlyNumbers();" value="0" min="0">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-<!-- 
-                        <div class="mbr-section-text">
-                            <div class='row'>
-                            </div>
-                        </div> -->
-
-                        <div class="mbr-section-text">
-                            <div class='row'>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        Total Jumlah Infaq/Sedekah (Rp)
-                                        <input type="number" class="form-control" name="infaq_sedekah" placeholder="Total Jumlah Infaq/Sedekah.." required onkeypress="return onlyNumbers();" value="0" min="0">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        Arah Infaq/Sedekah
-                                        <select class="form-control" name="arah_infaqsedekah" required>
-                                            <option value="">--- PILIH ---</option>
-                                            <?php
-                                                $dt = mysqli_query($mysqli, "SELECT * FROM ref_arah_infaqsedeqah");
-                                                while($df = mysqli_fetch_array($dt)){
-                                            ?>
-                                            <option value="<?php echo $df['nama_penerima'] ?>"><?php echo $df['nama_penerima'] ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="mbr-section-text">
-                            <div class='row'>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        Total Jumlah Fidyah (Rp)
-                                        <input type="number" class="form-control" name="fidyah" placeholder="Total Jumlah Fidyah.." required onkeypress="return onlyNumbers();" value="0" min="0">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <script type="text/javascript">
-                          function onlyNumbers(evt) {
-                            var e = event || evt;
-                            var charCode = e.which || e.keyCode;
-
-                            if(charCode > 31 && (charCode < 48 || charCode > 57))
-                              return false;
-                              return true;
-
-                          }
-                        </script>
-
-
-                        <div class="mbr-section-text">
 
             
 
                             <div class="row">
                                 <div class="col-lg-12 text-xs-right">
-                                    <a class="btn btn-lg btn-info-outline" href="penyetoran.php"><span class="fa fa-backward"></span> KEMBALI </a>
+                                    <a class="btn btn-lg btn-info-outline" href="penerima.php"><span class="fa fa-backward"></span> KEMBALI </a>
                                     <button type="submit" name="simpan" class="btn btn-lg btn-primary">Simpan&nbsp;<span class="fa fa-save"></span></button>
                                 </div>
                             </div>

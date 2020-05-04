@@ -13,13 +13,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="mbr-section-full col-md-12 col-lg-11">
-                        <h1 class="mbr-section-title display-2" style="padding-top: 90px;">Data Penyetor ZIS</h1>
+                        <h1 class="mbr-section-title display-2" style="padding-top: 90px;">Data Penerima ZIS</h1>
                         
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><a href="tambah_penyetoran.php" name="Update" class="col-xs-12 btn btn-lg btn-warning"><span class="fa fa-plus"></span>&nbsp;TAMBAH PENYETOR</a></div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><a href="tambah_penerima.php" name="Update" class="col-xs-12 btn btn-lg btn-warning"><span class="fa fa-plus"></span>&nbsp;TAMBAH PENERIMA</a></div>
                         
                         <br>
-                        <!-- <h6 style="font-weight: bold;font-size: 16px;">
-                        Keterangan: TTD #1 Adalah Yang Bertanda Tangan Pada Laporan Di Posisi Kiri Sedangkan TTD #2 Sebelah Kanan</h6> -->
                         <br>
                         <div class="mbr-section-nopadding">
                             
@@ -27,11 +25,9 @@
                               <thead>
                                 <tr>
                                   <th scope="col">No</th>
-                                  <th scope="col">Data Muzakki</th>
-                                  <th scope="col">Zakat Fitrah</th>
-                                  <th scope="col">Tot. Mal</th>
-                                  <th scope="col">Tot. Infaq Sedekah</th>
-                                  <th scope="col">Tot. Fidyah</th>
+                                  <th scope="col">Data Penerima</th>
+                                  <th scope="col">Jumlah Jiwa</th>
+                                  <th scope="col">Alamat</th>
                                   <th scope="col">Aksi</th>
                                 </tr>
                               </thead>
@@ -39,26 +35,20 @@
                               <tbody>
                               <?php
                                 $no=1;
-                                $id=$_SESSION['id']; 
-                                $dt = mysqli_query($mysqli, "SELECT * FROM tb_setoran_zis WHERE id_user = $id");
+                                $id=$_SESSION['id'];
+                                $dt = mysqli_query($mysqli, "SELECT * FROM tb_penerima_zis WHERE id_user = $id");
                                 while($data = mysqli_fetch_array($dt)){
                               ?>
                                 <tr>
                                   <td data-label="No" scope="row" ><?php echo $no; ?></td>
-                                  <td data-label="Data Muzakki"><?php echo $data['nama_muzakki']; ?><br>
-                                                                <b>Tgl:</b> <?php echo TanggalIndo($data['tgl']); ?><br>
-                                                                <b>Tanggungan:</b> <?php echo $data['jumlah_jiwa']; ?> Orang
-                                                              </td>
-                                  <td data-label="Zakat Fitrah"><b>Tot. Beras:</b> <?php echo $data['zakat_fitrah_beras']; ?> Liter<br>
-                                                                <b>Tot. Uang:</b> Rp. <?php echo $data['zakat_fitrah_uang']; ?>
-                                  </td>
-                                  <td data-label="Mal">Rp. <?php echo $data['zakat_mal']; ?></td>
-                                  <td data-label="Infaq Sedekah">Rp. <?php echo $data['infaq_sedekah']; ?></td>
-                                  <td data-label="Fidyah">Rp. <?php echo $data['fidyah']; ?></td>
+                                  <td data-label="Data Penerima"><?php echo $data['nama_penerima']; ?><br>
+                                                                 <?php echo $data['no_kk']; ?></td>
+                                  <td data-label="Jumlah Jiwa"><?php echo $data['jumlah_jiwa']; ?> Orang</td>
+                                  <td data-label="Alamat"><?php echo $data['alamat']; ?></td>
                                   
                                   <td data-label="Aksi">
-                                    <a href="edit_penyetoran.php?id=<?php echo $data['id']; ?>" class="btn btn-success">Edit</a>
-                                    <a href="controller.php?page=penyetoran&action=delete&id=<?php echo $data['id']; ?>" class="btn btn-danger confirmation">Hapus</a>
+                                    <a href="edit_penerima.php?id=<?php echo $data['id']; ?>" class="btn btn-success">Edit</a>
+                                    <a href="controller.php?page=penerima&action=delete&id=<?php echo $data['id']; ?>" class="btn btn-danger confirmation">Hapus</a>
                                   </td>
                                 </tr>
                               <?php $no++; } ?>
@@ -109,18 +99,18 @@
     function TanggalIndo($date){
     
           $BulanIndo = array( 
-                            "Jan", 
-                            "Feb", 
-                            "Mar", 
-                            "Apr", 
+                            "Januari", 
+                            "Februari", 
+                            "Maret", 
+                            "April", 
                             "Mei", 
-                            "Jun", 
-                            "Jul", 
-                            "Agu", 
-                            "Sep", 
-                            "Okt", 
-                            "Nov", 
-                            "Des"
+                            "Juni", 
+                            "Juli", 
+                            "Agustus", 
+                            "September", 
+                            "Oktober", 
+                            "November", 
+                            "Desember"
                             );
 
           $tahun = substr($date, 0, 4);

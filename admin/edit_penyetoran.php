@@ -173,7 +173,7 @@
 
                             <div class="row">
                                 <div class="col-lg-12 text-xs-right">
-                                    <a class="btn btn-lg btn-info-outline" href="panitia.php"><span class="fa fa-backward"></span> KEMBALI </a>
+                                    <a class="btn btn-lg btn-info-outline" href="penyetoran.php"><span class="fa fa-backward"></span> KEMBALI </a>
                                     <button type="submit" name="simpan" class="btn btn-lg btn-primary">Simpan&nbsp;<span class="fa fa-save"></span></button>
                                 </div>
                             </div>
