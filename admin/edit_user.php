@@ -16,6 +16,7 @@
                 <div class="row">
                     <div class="mbr-section col-md-6 text-xs-center">
                         <h4 class="mbr-section-title display-3">PROFILE MASJID</h4>
+                        <hr>
                         <div class="mbr-section-text">
                             <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
                             <div class='row'>
@@ -75,6 +76,7 @@
 
                     <div class="mbr-section col-md-5 col-md-offset-1">
                         <h1 class="mbr-section-title display-3">ATURAN MASJID</h1>
+                        <hr>
                         <div class="mbr-section-text">
                             <div class='row'>
 

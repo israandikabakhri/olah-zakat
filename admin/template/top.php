@@ -119,12 +119,12 @@ include("config/connect-db.php");
                                     
                             <li class="nav-item"><a class="nav-link link" href="index.php">Dashboard</a></li>
                             <li class="nav-item"><a class="nav-link link" href="edit_user.php">Data Masjid</a></li>
-                            <li class="nav-item"><a class="nav-link link" href="edit_user.php">Data Panitia</a></li> 
+                            <li class="nav-item"><a class="nav-link link" href="panitia.php">Data Panitia</a></li> 
                             <li class="nav-item"><a class="nav-link link" href="#">|</a></li> 
-                            <li class="nav-item"><a class="nav-link link" href="artikel.php">Penyetoran</a></li>
-                            <li class="nav-item"><a class="nav-link link" href="artikel.php">Penerimaan</a></li>
+                            <li class="nav-item"><a class="nav-link link" href="penyetoran.php">Penyetoran</a></li>
+                            <li class="nav-item"><a class="nav-link link" href="penerimaan.php">Penerimaan</a></li>
 
-                            <li class="nav-item"><a class="nav-link link" href="edit_user.php">Laporan</a></li>
+                            <li class="nav-item"><a class="nav-link link" href="laporan.php">Laporan</a></li>
                             <li class="nav-item"><a class="nav-link link" href="config/logout.php">Logout</a></li>
 
                         </ul>

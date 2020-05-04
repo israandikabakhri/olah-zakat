@@ -7,81 +7,47 @@
 	$page    = $_GET['page'];
 	$action  = $_GET['action'];
 
-	if($page == "artikel" && $action == "insert")
+	if($page == "panitia" && $action == "insert")
 	{
 		  
-		  $judul   = $_POST['judul'];
-		  $content = $_POST['content'];
-		  $tgl     = date('Y-m-d');
+		  $id_user  = $_SESSION['id'];
+		  $nama     = $_POST['nama'];
+		  $jabatan  = $_POST['jabatan'];
+		  $set_ttd1 = $_POST['set_ttd1'];
+		  $set_ttd2 = $_POST['set_ttd2'];
+		  $intensif = $_POST['intensif'];
 
-		  if($_FILES["foto"]["name"] <> "")
-		  {
-
-		  	$type	       = $_FILES["foto"]["type"];
-		  	$namaFile      = "file-".date('Y-m-d H-i-s')."-foto.jpg";
-			$namaSementara = $_FILES['foto']['tmp_name'];
-			$size          = $_FILES['foto']['size'];
-			$dirUpload     = "berkas/";
-
-			$terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
-
-			$result = mysqli_query($mysqli, "INSERT INTO tb_artikel (id, judul, content, tgl, foto) 
-			                                 VALUES(null, '$judul', '$content', '$tgl', '$namaFile')");
-		   
-		  }else{
-
-			  $result = mysqli_query($mysqli, "INSERT INTO tb_artikel (id, judul, content, tgl) 
-			                               VALUES(null, '$judul', '$content', '$tgl')");
-		  
-		  }
-
+		  $result = mysqli_query($mysqli, "INSERT INTO tb_panitia_zis (id, id_user, nama, jabatan, set_ttd1, set_ttd2, intensif) 
+			                               VALUES(null, $id_user, '$nama', '$jabatan', '$set_ttd1', '$set_ttd2', '$intensif')");
 		  
 		  if($result){ 
-		      echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/artikel.php" </script>';
+		      echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/panitia.php" </script>';
 		  }else{
 		      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
 		  }
 
 	
-	}elseif($page == "artikel" && $action == "update")
+	}elseif($page == "panitia" && $action == "update")
 	{
 
-		  $ID      = $_POST['id'];
-		  $judul   = $_POST['judul'];
-		  $content = $_POST['content'];
+		  $id       = $_POST['id'];
+		  $nama     = $_POST['nama'];
+		  $jabatan  = $_POST['jabatan'];
+		  $set_ttd1 = $_POST['set_ttd1'];
+		  $set_ttd2 = $_POST['set_ttd2'];
+		  $intensif = $_POST['intensif'];
 
 
-		  if($_FILES["foto"]["name"] <> "")
-		  {
 
-		  	$type	       = $_FILES["foto"]["type"];
-		  	$namaFile      = "file-".date('Y-m-d H-i-s')."-foto.jpg";
-			$namaSementara = $_FILES['foto']['tmp_name'];
-			$size          = $_FILES['foto']['size'];
-			$dirUpload     = "berkas/";
-
-
-			      $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
-
-				  $result = mysqli_query($mysqli, "UPDATE tb_artikel
+				  $result = mysqli_query($mysqli, "UPDATE tb_panitia_zis
 				  									SET 
-				  									   judul   = '$judul',
-				  									   content = '$content',
-				  									   foto = '$namaFile'
-				  									   WHERE id = $ID
+				  									   nama     = '$nama',
+				  									   jabatan  = '$jabatan',
+				  									   set_ttd1 = '$set_ttd1',
+				  									   set_ttd2 = '$set_ttd2',
+				  									   intensif = '$intensif'
+				  									   WHERE id = $id
 				  									") or die(mysqli_error($mysqli));
-
-		  
-		  }else{
-
-				  $result = mysqli_query($mysqli, "UPDATE tb_artikel
-				  									SET 
-				  									   judul   = '$judul',
-				  									   content = '$content'
-				  									   WHERE id = $ID
-				  									") or die(mysqli_error($mysqli));
-		  
-		  }
 
 
 
@@ -89,7 +55,7 @@
 		  if(isset($result)){ 
 
 		      		echo '<script language="javascript"> 
-		      				window.location.href = "'.$base_url_back.'/artikel.php" 
+		      				window.location.href = "'.$base_url_back.'/panitia.php" 
 		      			 </script>';
 
 		  }else{
@@ -100,20 +66,20 @@
 		  
 		  }
 
-	}elseif($page == "artikel" && $action == "delete")
+	}elseif($page == "panitia" && $action == "delete")
 	{
 
 		  $ID = $_GET['id'];
 
 
-				  $result = mysqli_query($mysqli, "DELETE FROM tb_artikel WHERE id = $ID
+				  $result = mysqli_query($mysqli, "DELETE FROM tb_panitia_zis WHERE id = $ID
 				  									") or die(mysqli_error($mysqli));
 
 		  
 		  if(isset($result)){ 
 
 		      		echo '<script language="javascript"> 
-		      				window.location.href = "'.$base_url_back.'/artikel.php" 
+		      				window.location.href = "'.$base_url_back.'/panitia.php" 
 		      			 </script>';
 
 		  }else{

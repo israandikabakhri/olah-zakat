@@ -13,20 +13,25 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="mbr-section-full col-md-12 col-lg-11">
-                        <h1 class="mbr-section-title display-1" style="padding-top: 90px;">Data Panitia</h1>
+                        <h1 class="mbr-section-title display-2" style="padding-top: 90px;">Data Panitia</h1>
                         
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><a href="tambah_artikel.php" name="Update" class="col-xs-12 btn btn-lg btn-warning"><span class="fa fa-plus"></span>&nbsp;TAMBAH ARTIKEL</a></div>
-
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><a href="tambah_panitia.php" name="Update" class="col-xs-12 btn btn-lg btn-warning"><span class="fa fa-plus"></span>&nbsp;TAMBAH PANITIA</a></div>
+                        
                         <br>
-                        
+                        <h6 style="font-weight: bold;font-size: 16px;">
+                        Keterangan: TTD #1 Adalah Yang Bertanda Tangan Pada Laporan Di Posisi Kiri Sedangkan TTD #2 Sebelah Kanan</h6>
+                        <br>
                         <div class="mbr-section-nopadding">
                             
                             <table class="gigo-responsive" style="margin-right: 10px;">
                               <thead>
                                 <tr>
                                   <th scope="col">No</th>
-                                  <th scope="col">Judul</th>
-                                  <th scope="col">Tanggal Post</th>
+                                  <th scope="col">Nama</th>
+                                  <th scope="col">Jabatan</th>
+                                  <th scope="col">TTD #1</th>
+                                  <th scope="col">TTD #2</th>
+                                  <th scope="col">Intensif</th>
                                   <th scope="col">Aksi</th>
                                 </tr>
                               </thead>
@@ -34,17 +39,21 @@
                               <tbody>
                               <?php
                                 $no=1;
-                                $dt = mysqli_query($mysqli, "SELECT * FROM tb_artikel");
+                                $id=$_SESSION['id'];
+                                $dt = mysqli_query($mysqli, "SELECT * FROM tb_panitia_zis WHERE id_user = $id");
                                 while($data = mysqli_fetch_array($dt)){
                               ?>
                                 <tr>
                                   <td data-label="No" scope="row" ><?php echo $no; ?></td>
-                                  <td data-label="Judul"><?php echo $data['judul']; ?></td>
-                                  <td data-label="Tanggal Post"><?php echo $data['tgl']; ?></td>
+                                  <td data-label="Nama"><?php echo $data['nama']; ?></td>
+                                  <td data-label="Jabatan"><?php echo $data['jabatan']; ?></td>
+                                  <td data-label="TTD #1"><?php echo $data['set_ttd1']; ?></td>
+                                  <td data-label="TTD #2"><?php echo $data['set_ttd2']; ?></td>
+                                  <td data-label="Intensif">Rp. <?php echo $data['intensif']; ?></td>
                                   
                                   <td data-label="Aksi">
-                                    <a href="edit_artikel.php?id=<?php echo $data['id']; ?>" class="btn btn-success">Edit</a>
-                                    <a href="controller.php?page=artikel&action=delete&id=<?php echo $data['id']; ?>" class="btn btn-danger confirmation">Hapus</a>
+                                    <a href="edit_panitia.php?id=<?php echo $data['id']; ?>" class="btn btn-success">Edit</a>
+                                    <a href="controller.php?page=panitia&action=delete&id=<?php echo $data['id']; ?>" class="btn btn-danger confirmation">Hapus</a>
                                   </td>
                                 </tr>
                               <?php $no++; } ?>
