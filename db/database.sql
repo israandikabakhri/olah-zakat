@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `ref_arah_infaqsedeqah` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='tabel ini untuk menjadi referensi bagi pengurus jika ada jemaah setor infq/sedekah mau di arafhkan ke mana masjid, yatim piatu atau fakir miskin';
 
--- Membuang data untuk tabel olah_zakat.ref_arah_infaqsedeqah: ~0 rows (lebih kurang)
+-- Membuang data untuk tabel olah_zakat.ref_arah_infaqsedeqah: ~3 rows (lebih kurang)
 /*!40000 ALTER TABLE `ref_arah_infaqsedeqah` DISABLE KEYS */;
 INSERT INTO `ref_arah_infaqsedeqah` (`id`, `nama_penerima`) VALUES
   (1, 'MASJID'),
@@ -64,14 +64,14 @@ CREATE TABLE IF NOT EXISTS `tb_panitia_zis` (
   CONSTRAINT `dsad` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Membuang data untuk tabel olah_zakat.tb_panitia_zis: ~2 rows (lebih kurang)
+-- Membuang data untuk tabel olah_zakat.tb_panitia_zis: ~1 rows (lebih kurang)
 /*!40000 ALTER TABLE `tb_panitia_zis` DISABLE KEYS */;
 INSERT INTO `tb_panitia_zis` (`id`, `id_user`, `nama`, `jabatan`, `set_ttd1`, `set_ttd2`, `intensif`, `created_at`, `updated_at`) VALUES
   (1, 1, 'Fadel Fadilah', 'SEKERTARIS', 'YA', 'TIDAK', 120000, '2020-05-05 02:14:37', '2020-05-05 02:14:37');
 /*!40000 ALTER TABLE `tb_panitia_zis` ENABLE KEYS */;
 
--- membuang struktur untuk table olah_zakat.tb_penerima_zakat
-CREATE TABLE IF NOT EXISTS `tb_penerima_zakat` (
+-- membuang struktur untuk table olah_zakat.tb_penerima_zis
+CREATE TABLE IF NOT EXISTS `tb_penerima_zis` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
   `no_kk` varchar(150) DEFAULT NULL,
@@ -86,9 +86,9 @@ CREATE TABLE IF NOT EXISTS `tb_penerima_zakat` (
   CONSTRAINT `FK_tb_penerima_zakat_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Membuang data untuk tabel olah_zakat.tb_penerima_zakat: ~0 rows (lebih kurang)
-/*!40000 ALTER TABLE `tb_penerima_zakat` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_penerima_zakat` ENABLE KEYS */;
+-- Membuang data untuk tabel olah_zakat.tb_penerima_zis: ~0 rows (lebih kurang)
+/*!40000 ALTER TABLE `tb_penerima_zis` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_penerima_zis` ENABLE KEYS */;
 
 -- membuang struktur untuk table olah_zakat.tb_setoran_zis
 CREATE TABLE IF NOT EXISTS `tb_setoran_zis` (
