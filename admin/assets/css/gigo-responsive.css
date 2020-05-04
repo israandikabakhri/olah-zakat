@@ -1,0 +1,90 @@
+:root {
+  --main-color: #fff;
+  --main-bg-color: #27569a;
+}
+
+.gigo-responsive {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.gigo-responsive caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+.gigo-responsive tr {
+  background-color: #f8f8f8;
+  border: 1px solid var(--main-bg-color);
+  padding: .35em;
+}
+
+.gigo-responsive th,
+.gigo-responsive td {
+  padding: .625em;
+  text-align: center;
+}
+
+.gigo-responsive th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+}
+
+@media screen and (max-width: 600px) {
+  .gigo-responsive {
+    border: 0;
+  }
+
+  .gigo-responsive caption {
+    font-size: 1.3em;
+  }
+  
+  .gigo-responsive thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  .gigo-responsive tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  .gigo-responsive td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  .gigo-responsive td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .gigo-responsive td:last-child {
+    border-bottom: 0;
+  }
+  
+}

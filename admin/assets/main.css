@@ -1,0 +1,193 @@
+@font-face {
+  font-family: 'custom-font';
+  src: url('../bootstrap/fonts/Roboto.ttf') format('truetype');
+}
+html {
+    height: 100%;
+    font-family: 'Arial' !important;
+}
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial' !important;
+    
+}
+a{
+    color: #222;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+/* Marquee Style */
+.myMarq{
+    background-color: #222;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+/* border panel */
+.panel-border-custom {
+    margin: 6px;
+    border: 1px solid #fff;
+}
+.panel-border-custom > div {
+    margin: 10px;
+}
+
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+/*
+ * Custom alert
+ */
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events:none;
+}
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width:inherit;
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+    pointer-events: all;
+}
+#success-alert{
+    position: fixed; 
+    left: 40%; 
+    top: 40%; 
+    z-index: 9999; 
+    width: 200px; 
+    padding: 5px; 
+    text-align: center; 
+    border: 2px solid #335b35; 
+    color: #fff; 
+    font-weight: 600; 
+    background-color: #090;
+}
+#info-alert{
+    position: fixed;
+    left: 32%;
+    top: 40%;
+    z-index: 9999;
+    width: 500px;
+    padding: 5px;
+    text-align: center;
+    border: 2px solid #31708f;
+    color: #fff;
+    font-weight: 600;
+    background-color: #90ceef;
+}
+#warning-alert{
+    position: fixed; 
+    left: 40%; 
+    top: 40%; 
+    z-index: 9999; 
+    width: 200px; 
+    padding: 5px; 
+    text-align: center; 
+    border: 2px solid #ff6600; 
+    color: #fff; 
+    font-weight: 600; 
+    background-color: #ff9966;
+}
+#failed-alert{
+    position: fixed; 
+    left: 40%; 
+    top: 40%; 
+    z-index: 9999; 
+    width: 200px; 
+    padding: 5px; 
+    text-align: center; 
+    border: 2px solid #990000; 
+    color: #fff; 
+    font-weight: 600; 
+    background-color: #ff6666;
+}
+/*
+ * custom table class
+ */
+.table > tbody > tr > td.numbering{
+    width: 75px !important;
+}
+.table > tbody > tr > td.link > a,
+.table > tbody > tr > td.link {
+    color: #66ff66 !important;
+}
+.table > tbody > tr > td.judul{
+    overflow-y: hidden !important;
+}
+.table > tbody > tr > td.kategori,
+.table > tbody > tr > td.tanggal,
+.table > tbody > tr > td.option{
+    min-width: 100px !important;
+    max-width: 200px !important;
+    overflow-y: hidden;
+}
+.table > tbody > tr > td.status{
+    width: 100px !important;
+    overflow-y: hidden;
+}
+
+
+/*
+ * Tooltip
+ */
+
+.ui-tooltip, .arrow:after {
+    background: #222 !important;
+    border: 1px solid #dedede;
+}
+.ui-tooltip {
+    padding: 5px;
+    color: #fff !important;
+    border-radius: 1px;
+    box-shadow: 0 0 5px 2px #222;
+}
+.arrow {
+    width: 70px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    margin-left: -25px;
+    bottom: -16px;
+}
+.arrow.top {
+    top: -16px;
+    bottom: auto;
+}
+.arrow.left {
+    left: 20%;
+}
+.arrow:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+    box-shadow: 6px 5px 9px -9px black;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.arrow.top:after {
+    bottom: -20px;
+    top: auto;
+}

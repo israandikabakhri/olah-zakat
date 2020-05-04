@@ -96,20 +96,20 @@
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="concept-item">
-						<img src="img/icon.png" alt="">
-						<h5>Masjid Tauhid Mattoangin (Jl. Flamboyan)</h5>
+						<img src="img/masjid/attauhid.png" alt="">
+						<h5>Masjid Tauhid Mattoangin (Jl. Dahlia, Makassar)</h5>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="concept-item">
-						<img src="img/icon.png" alt="">
+						<img src="img/masjid/alikhlas.png" alt="">
 						<h5>Masjid Al Ikhlas (Bumi Permata Sudiang)</h5>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="concept-item">
-						<img src="img/icon.png" alt="">
-						<h5>Masjid An-Nur (Kompleks Gerhana Alauddin)</h5>
+						<img src="img/masjid/annur.png" alt="">
+						<h5>Masjid An-Nur (Kompleks Gerhana Alauddin, Makassar)</h5>
 					</div>
 				</div>
 			</div>

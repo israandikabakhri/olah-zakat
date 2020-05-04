@@ -12,7 +12,7 @@
 							<h2>Login</h2>
 						</div>
 						<br>
-						<form class="contact-from" style="width: 50%">
+						<form class="contact-from" style="width: 50%" action="proses-login.php" method="post">
 							<div class="row">
 								<div class="col-md-12">
 									<input type="text" placeholder="Username" name="username">
@@ -23,6 +23,12 @@
 								<div class="col-md-12">
 									<button class="site-btn">Masuk</button>
 								</div>
+								<br><br><br>
+								<?php if(isset($_GET['sts'])){ ?>
+								<div class="col-md-12">
+									<span style="color:red;">Username/password Anda Salah!</span>
+								</div>
+								<?php } ?>
 							</div>
 						</form>
 					</div>
