@@ -12,9 +12,9 @@ include('template/top.php');
                 <div class="row">
                     <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
                         <h1 class="mbr-section-title display-2">
-                            <center>SELAMAT DATANG
+                            <center>SELAMAT DATANG ADMIN MASJID
                                     <BR>
-                                    DI
+                                    ADMIN
                                     <br>
                                     <img src="../img/icon.png" style="width: 40%">
                                 
