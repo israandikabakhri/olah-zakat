@@ -15,7 +15,7 @@
 						<form class="contact-from" style="width: 50%" action="proses-login.php" method="post">
 							<div class="row">
 								<div class="col-md-12">
-									<input type="text" placeholder="Username" name="username">
+									<input type="text" placeholder="Username" name="username" autofocus>
 								</div>
 								<div class="col-md-12">
 									<input type="password" placeholder="Password" name="password">

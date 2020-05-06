@@ -82,7 +82,7 @@
                     </script>
 
                     <div class="mbr-section col-md-5 col-md-offset-1">
-                        <h1 class="mbr-section-title display-3">ATURAN MASJID</h1>
+                        <h1 class="mbr-section-title display-3" style="font-size: 28px;">ATURAN PENYALURAN MASJID</h1>
                         <hr>
                         <div class="mbr-section-text">
                             <div class='row'>
@@ -90,30 +90,30 @@
                                 <div class="col-lg-12">
                        
                                     <div class="form-group">
-                                        <label class="form-control-static pull-left"><span class="fa fa-mosque"></span> Aturan Distribusi Zakat Beras (LITER)</label>
-                                        <input type="text" class="form-control" name="set_fitrah_beras" placeholder="Aturan Distribusi Zakat Beras (LITER).." value="<?php echo $d['set_fitrah_beras'];?>">
+                                        <label class="form-control-static pull-left"><span class="fa fa-mosque"></span> Aturan Penyaluran Zakat Beras (LITER)</label>
+                                        <input type="text" class="form-control" name="set_fitrah_beras" placeholder="Aturan Penyaluran Zakat Beras (LITER).." value="<?php echo $d['set_fitrah_beras'];?>">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="form-control-static pull-left"><!-- <span class="fa fa-money"></span> --> Aturan Distribusi Zakat Uang (RUPIAH)</label>
-                                        <input type="number" class="form-control" name="set_fitrah_uang" min="0" placeholder="Aturan Distribusi Zakat Uang (RUPIAH).." onkeypress="return onlyNumbers();" value="<?php echo $d['set_fitrah_uang'];?>">
+                                        <label class="form-control-static pull-left"><!-- <span class="fa fa-money"></span> --> Aturan Penyaluran Zakat Uang (RUPIAH)</label>
+                                        <input type="number" class="form-control" name="set_fitrah_uang" min="0" placeholder="Aturan Penyaluran Zakat Uang (RUPIAH).." onkeypress="return onlyNumbers();" value="<?php echo $d['set_fitrah_uang'];?>">
                                     </div>
                                 </div>
-
+<!-- 
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="form-control-static pull-left"><!-- <span class="fa fa-users"></span> --> Perkiraan Penerima Zakat (ORANG)</label>
+                                        <label class="form-control-static pull-left"> Perkiraan Penerima Zakat (ORANG)</label>
                                         <input type="text" class="form-control" name="perkiraan_penerima" placeholder="Perkiraan Penerima Zakat (ORANG).." value="<?php echo $d['perkiraan_penerima'];?>">
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <span style="text-align: left!important;font-family: calibri;">
                                   <b>Ket:</b> <br> 
-                                    1. <b>Aturan Distribusi Zakat Beras</b> Adalah Jumlah Beras Dalam Satuan Liter Yang Diterima Per KK Begitupun Dengan <b>Aturan Distribusi Zakat Uang</b> Adalah Jumlah Uang Yang Diterima Per KK Bersamaan Dengan Beras.
+                                    <b>Aturan Penyaluran Zakat Beras</b> Adalah Jumlah Beras Dalam Satuan Liter Yang Diterima Per KK Begitupun Dengan <b>Aturan Penyaluran Zakat Uang</b> Adalah Jumlah Uang Yang Diterima Per KK Bersamaan Dengan Beras.
                                     <br><br>
-                                    2. <b>Perkiraan Penerima Zakat</b> Adalah Rumus Penunjang Untuk Menghasilkan Jumlah Hasil Distribusi Berdasarkan Ketetapan Aturan Di atasnya Yaitu Jumlah Beras dan Uang Bagi Penerima, Namun ini Diisi Jika Belum Memiliki Database Penerima Zakat Dalam APlikasi Ini. 
+                                    <!-- 2. <b>Perkiraan Penerima Zakat</b> Adalah Rumus Penunjang Untuk Menghasilkan Jumlah Hasil Penyaluran Berdasarkan Ketetapan Aturan Di atasnya Yaitu Jumlah Beras dan Uang Bagi Penerima, Namun ini Diisi Jika Belum Memiliki Database Penerima Zakat Dalam APlikasi Ini.  -->
                                 </span>
 
                             </div>
@@ -165,43 +165,46 @@ if(isset($_POST['Update'])) {
   $set_fitrah_uang    = $_POST['set_fitrah_uang'];
   $perkiraan_penerima = $_POST['perkiraan_penerima'];
 
-    $result = mysqli_query($mysqli, "UPDATE users SET 
+    
+          if($_POST['new_pass'] <> "")
+          {
+              $new_pass   = MD5($_POST['new_pass']);
+              
+              $result = mysqli_query($mysqli, "UPDATE users SET 
+                                               nama                 =  '$nama',
+                                               username             =  '$username',
+                                               alamat               =  '$alamat',
+                                               kota                 =  '$kota',
+                                               no_hp                =  '$no_hp',
+                                               set_fitrah_beras     =  '$set_fitrah_beras',
+                                               set_fitrah_uang      =  '$set_fitrah_uang',
+                                               password     =  '$new_pass'
+                                               WHERE id=$id") or die(mysqli_error($mysqli));
+
+          }else{
+            $result = mysqli_query($mysqli, "UPDATE users SET 
                                        nama                 =  '$nama',
                                        username             =  '$username',
                                        alamat               =  '$alamat',
                                        kota                 =  '$kota',
                                        no_hp                =  '$no_hp',
                                        set_fitrah_beras     =  '$set_fitrah_beras',
-                                       set_fitrah_uang      =  '$set_fitrah_uang',
-                                       perkiraan_penerima   =  '$perkiraan_penerima'
+                                       set_fitrah_uang      =  '$set_fitrah_uang'
                                        WHERE id=$id") or die(mysqli_error($mysqli));
+      
+          }
 
       if($result){ 
       
-          if($_POST['new_pass'] <> "")
-          {
-            $new_pass   = MD5($_POST['new_pass']);
-              
-              // Memasukkan data kedatabase berdasarakan variabel tadi
-              $result = mysqli_query($mysqli, "UPDATE users SET 
-                                               password     =  '$new_pass'
-                                               WHERE id=$id") or die(mysqli_error($mysqli));
-
-              if($result){ 
-                  echo '<script language="javascript"> alert("Berhasil Ubah Data..") </script>';
-              }else{
-                  echo '<script language="javascript"> alert("Gagal Ubah Data..") </script>';
-              }
-
-          }
+       echo '<script language="javascript"> alert("Berhasil Ubah Data..") </script>';
+       echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/edit_user.php" </script>';
+         
 
       }else{
           echo '<script language="javascript"> alert("Gagal Ubah Data..") </script>';
       }
 
 
-
-       echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/edit_user.php" </script>';
 
 
 

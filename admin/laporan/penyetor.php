@@ -87,7 +87,7 @@
 										  SUM(infaq_sedekah) AS tot_infaq_sedekah,
 										  SUM(fidyah) AS tot_fidyah
 										FROM tb_setoran_zis 
-										WHERE id_user = 1 ");
+										WHERE id_user = $id ");
             $dd = mysqli_fetch_array($ds);
         ?>
 
