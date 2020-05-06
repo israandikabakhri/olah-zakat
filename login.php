@@ -4,7 +4,7 @@
 	<!-- Contact section -->
 	<section class="contact-section">
 		<div class="container-fluid">
-			<div class="row">>
+			<div class="row">
 				<div class="col-lg-12 p-0">
 					<div class="contact-warp">
 						<center>
