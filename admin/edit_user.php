@@ -44,6 +44,13 @@
 
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                        <label class="form-control-static pull-left"><span class="fa fa-home"></span> Kota</label>
+                                        <input type="text" class="form-control" name="kota" placeholder="Alamat.." value="<?php echo $d['kota'];?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
                                         <label class="form-control-static pull-left"><span class="fa fa-phone"></span> No Hp</label>
                                         <input type="text" class="form-control" name="no_hp" placeholder="No Handphone Pengurus.." value="<?php echo $d['no_hp'];?>">
                                     </div>
@@ -152,6 +159,7 @@ if(isset($_POST['Update'])) {
   $nama               = $_POST['nama'];
   $username           = $_POST['username'];
   $alamat             = $_POST['alamat'];
+  $kota               = $_POST['kota'];
   $no_hp              = $_POST['no_hp'];
   $set_fitrah_beras   = $_POST['set_fitrah_beras'];
   $set_fitrah_uang    = $_POST['set_fitrah_uang'];
@@ -161,6 +169,7 @@ if(isset($_POST['Update'])) {
                                        nama                 =  '$nama',
                                        username             =  '$username',
                                        alamat               =  '$alamat',
+                                       kota                 =  '$kota',
                                        no_hp                =  '$no_hp',
                                        set_fitrah_beras     =  '$set_fitrah_beras',
                                        set_fitrah_uang      =  '$set_fitrah_uang',

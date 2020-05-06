@@ -113,7 +113,7 @@
 		  	                                (id, id_user, tgl, nama_muzakki, alamat, jumlah_jiwa, zakat_fitrah_beras,
 		  	                                zakat_fitrah_uang, zakat_mal, infaq_sedekah, arah_infaqsedekah, fidyah) 
 			                                VALUES
-			                                (null, $id_user, '$tgl', '$nama_muzakki', 'alamat', '$jumlah_jiwa', '$zakat_fitrah_beras',
+			                                (null, $id_user, '$tgl', '$nama_muzakki', '$alamat', '$jumlah_jiwa', '$zakat_fitrah_beras',
 			                                '$zakat_fitrah_uang', '$zakat_mal', '$infaq_sedekah', '$arah_infaqsedekah', '$fidyah')");
 		  
 		  if($result){ 

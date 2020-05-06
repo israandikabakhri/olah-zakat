@@ -117,7 +117,7 @@ include("config/connect-db.php");
                         </button>
                         <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
                                     
-                            <li class="nav-item"><a class="nav-link link" href="index.php">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link link" href="index.php">Beranda</a></li>
                             <li class="nav-item"><a class="nav-link link" href="edit_user.php">Data Masjid</a></li>
                             <li class="nav-item"><a class="nav-link link" href="panitia.php">Data Panitia</a></li> 
                             <li class="nav-item"><a class="nav-link link" href="#">|</a></li> 

@@ -115,7 +115,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         Arah Infaq/Sedekah
-                                        <select class="form-control" name="arah_infaqsedekah" required>
+                                        <select class="form-control" name="arah_infaqsedekah">
                                             <option value="">--- PILIH ---</option>
                                             <?php
                                                 $dt = mysqli_query($mysqli, "SELECT * FROM ref_arah_infaqsedeqah");
