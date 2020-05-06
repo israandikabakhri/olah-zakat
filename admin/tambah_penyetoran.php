@@ -1,7 +1,7 @@
 <?php include('template/top.php') ?>
     
 
-
+<link rel="stylesheet" type="text/css" href="http://localhost/sipinawa/public/plugin_lain/bootstrap_datetimepicker/css/bootstrap-datetimepicker.min.css">
 
 <form action="controller.php?page=penyetoran&action=insert" id="form_proposal" enctype="multipart/form-data" method="post">
 
@@ -26,7 +26,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         Tanggal Penyetoran
-                                        <input type="date" class="form-control" name="tgl" placeholder="Tanggal Penyetoran.." required>
+                                        <input type="date" class="form-control tanggal" name="tgl" placeholder="Tanggal Penyetoran.." data-link-format="yyyy-mm-dd" required>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                             <div class='row'>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        Jumlah Jiwa (Orang)
+                                        Jumlah Jiwa (Orang) <i>*Termasuk Kepala Keluarga</i>
                                         <input type="number" class="form-control" name="jumlah_jiwa" placeholder="Jumlah Jiwa.." required onkeypress="return onlyNumbers();" value="0" min="0">
                                     </div>
                                 </div>
@@ -71,6 +71,17 @@
                                     <div class="form-group">
                                         Total Jumlah Zakat Beras (Liter)
                                         <input type="number" class="form-control" name="zakat_fitrah_beras" placeholder="Total Jumlah Zakat Beras.." required onkeypress="return onlyNumbers();" value="0" min="0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mbr-section-text">
+                            <div class='row'>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        Harga Beras Yang Dimakan Per Liter (Rp)
+                                        <input type="number" class="form-control" name="harga_beras_dimakan" placeholder="Harga Beras Yang Dimakan Per Liter.." required onkeypress="return onlyNumbers();" value="0" min="0">
                                     </div>
                                 </div>
                             </div>
@@ -182,15 +193,30 @@
 </form>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<script src="http://localhost/sipinawa/public/plugin_lain/bootstrap_datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 
 <script type="text/javascript">
-    $(function () {
-      $("#datepicker").datepicker({ 
-            autoclose: true, 
-            todayHighlight: true
-      });
+
+
+    $('.tanggal').datetimepicker({
+         Default:false,
+         language:  'fr',
+         viewMode: 'months',
+         todayBtn:  1,
+         autoclose: 1,
+         todayHighlight: 1,
+         startView: 4,
+         minView: 2,
+         forceParse: 0,
+        format: 'yyyy-mm-dd'
     });
+
+    // $(function () {
+    //   $(".tanggal").datepicker({ 
+    //         autoclose: true, 
+    //         todayHighlight: true
+    //   });
+    // });
 
     $(this).ready(function(){
        check_radio(); 
