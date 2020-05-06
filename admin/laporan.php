@@ -61,13 +61,13 @@
                                   </td>
                                 </tr> -->
 
-                                <!-- <tr>
-                                  <td data-label="No" scope="row" >4</td>
+                                <tr>
+                                  <td data-label="No" scope="row" >2</td>
                                   <td data-label="Nama Laporam">Cetak Kupon Penerima ZIS</td>
                                   <td data-label="Aksi">
                                     <a href="laporan/kupon.php" target="_blank" class="btn btn-success">Cetak</a>
                                   </td>
-                                </tr> -->
+                                </tr>
 
                               </tbody>
 
