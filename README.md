@@ -75,3 +75,11 @@ Kami sangat mengharapkan kritik dan saran anda terkait ide di atas sebelum di im
 Kami juga membuka donasi bagi siapa saja yang mau mendanai project ini. sekedar informasi bahwa kami mungkin untuk kedepannya membutuhkan server dan Domain name server (DNS) yang dibiayai pertahunnya. maka dari itu jika ingin melakukan donasi bisa mengajukannya melalui email saya andikaisra7@gmail.com. kami akan membuat laporan terkait penggunaan dana donasi yang anda berikan.
 
 Terima Kasih Atas Perhatiannya.
+
+# Tag Line
+aplikasi zakat github
+aplikasi zakat masjid github
+source code aplikasi zakat
+source code aplikasi zakat masjid
+source code aplikasi zakat github
+source code aplikasi zakat masjid github
