@@ -9,6 +9,7 @@
                 $d  = mysqli_fetch_array($dt);
             ?>
 
+<link rel="stylesheet" type="text/css" href="assets/datepicker/bootstrap-datetimepicker.min.css">
 
 
 
@@ -69,8 +70,8 @@
                             <div class='row'>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        Jumlah Jiwa (Orang)
-                                        <input type="number" class="form-control" name="jumlah_jiwa" placeholder="Jumlah Jiwa.." required onkeypress="return onlyNumbers();" value="<?php echo $d['jumlah_jiwa'] ?>" min="0">
+                                        Jumlah Jiwa (Orang) <i>*Termasuk Kepala Keluarga</i>
+                                        <input type="number" class="form-control" name="jumlah_jiwa" placeholder="Jumlah Jiwa.." required onkeypress="return onlyNumbers();" value="<?php echo $d['jumlah_jiwa'] ?>" min="0" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +82,19 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         Total Jumlah Zakat Beras (Liter)
-                                        <input type="number" class="form-control" name="zakat_fitrah_beras" placeholder="Total Jumlah Zakat Beras.." required onkeypress="return onlyNumbers();" value="<?php echo $d['zakat_fitrah_beras'] ?>" min="0">
+                                        <input type="number" class="form-control" name="zakat_fitrah_beras" placeholder="Total Jumlah Zakat Beras.." required onkeypress="return onlyNumbers();" value="<?php echo $d['zakat_fitrah_beras'] ?>" min="0" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mbr-section-text">
+                            <div class='row'>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        Harga Beras Yang Dimakan Per Liter (Rp)
+                                        <input type="number" class="form-control" name="harga_beras_dimakan" placeholder="Harga Beras Yang Dimakan Per Liter.." required onkeypress="return onlyNumbers();" value="<?php echo $d['harga_beras_dimakan'] ?>" min="0" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +105,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         Total Jumlah Zakat Uang (Rp)
-                                        <input type="number" class="form-control" name="zakat_fitrah_uang" placeholder="Total Jumlah Zakat Uang.." required onkeypress="return onlyNumbers();" value="<?php echo $d['zakat_fitrah_uang'] ?>" min="0">
+                                        <input type="number" class="form-control" name="zakat_fitrah_uang" placeholder="Total Jumlah Zakat Uang.." required onkeypress="return onlyNumbers();" value="<?php echo $d['zakat_fitrah_uang'] ?>" min="0" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +139,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         Arah Infaq/Sedekah
-                                        <select class="form-control" name="arah_infaqsedekah" required>
+                                        <select class="form-control" name="arah_infaqsedekah">
                                             <option value="">--- PILIH ---</option>
                                             <?php
                                                 $dt = mysqli_query($mysqli, "SELECT * FROM ref_arah_infaqsedeqah");
@@ -193,14 +206,21 @@
 </form>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<script src="assets/datepicker/bootstrap-datetimepicker.min.js"></script>
 
 <script type="text/javascript">
-    $(function () {
-      $("#datepicker").datepicker({ 
-            autoclose: true, 
-            todayHighlight: true
-      });
+    
+    $('.tanggal').datetimepicker({
+         Default:false,
+         language:  'fr',
+         viewMode: 'months',
+         todayBtn:  1,
+         autoclose: 1,
+         todayHighlight: 1,
+         startView: 4,
+         minView: 2,
+         forceParse: 0,
+        format: 'yyyy-mm-dd'
     });
 
     $(this).ready(function(){

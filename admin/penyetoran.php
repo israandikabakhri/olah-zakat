@@ -5,6 +5,16 @@
   .vc{
     font-size: 17px;
   }
+  .linkkk{
+    cursor: pointer;
+    background-color: #2196f3;
+    color: #fff;
+    border-radius: 1.6em;
+    padding: 5px;
+  }
+  .linkkk:hover{
+    color: white;
+  }
 </style>
 
 
@@ -40,21 +50,21 @@
                               <?php
                                 $no=1;
                                 $id=$_SESSION['id']; 
-                                $dt = mysqli_query($mysqli, "SELECT * FROM tb_setoran_zis WHERE id_user = $id");
+                                $dt = mysqli_query($mysqli, "SELECT * FROM tb_setoran_zis WHERE id_user = $id order by id DESC");
                                 while($data = mysqli_fetch_array($dt)){
                               ?>
                                 <tr>
                                   <td data-label="No" scope="row" ><?php echo $no; ?></td>
                                   <td data-label="Data Muzakki"><?php echo $data['nama_muzakki']; ?><br>
                                                                 <b>Tgl:</b> <?php echo TanggalIndo($data['tgl']); ?><br>
-                                                                <b>Tanggungan:</b> <?php echo $data['jumlah_jiwa']; ?> Orang
+                                                                <b>Tanggungan:</b> <?php echo number_format($data['jumlah_jiwa'],0); ?> Orang
                                                               </td>
-                                  <td data-label="Zakat Fitrah"><b>Tot. Beras:</b> <?php echo $data['zakat_fitrah_beras']; ?> Liter<br>
-                                                                <b>Tot. Uang:</b> Rp. <?php echo $data['zakat_fitrah_uang']; ?>
+                                  <td data-label="Zakat Fitrah"><b>Tot. Beras:</b> <?php echo number_format($data['zakat_fitrah_beras'],0); ?> Liter<br>
+                                                                <b>Tot. Uang:</b> <br><br><a class="linkkk" href="konversi_beras.php?id=<?php echo $data['id']; ?>">Rp. <?php echo number_format($data['zakat_fitrah_uang'],0); ?></a>
                                   </td>
-                                  <td data-label="Mal">Rp. <?php echo $data['zakat_mal']; ?></td>
-                                  <td data-label="Infaq Sedekah">Rp. <?php echo $data['infaq_sedekah']; ?></td>
-                                  <td data-label="Fidyah">Rp. <?php echo $data['fidyah']; ?></td>
+                                  <td data-label="Mal">Rp. <?php echo number_format($data['zakat_mal'],0); ?></td>
+                                  <td data-label="Infaq Sedekah">Rp. <?php echo number_format($data['infaq_sedekah'],0); ?></td>
+                                  <td data-label="Fidyah">Rp. <?php echo number_format($data['fidyah'],0); ?></td>
                                   
                                   <td data-label="Aksi">
                                     <a href="edit_penyetoran.php?id=<?php echo $data['id']; ?>" class="btn btn-success">Edit</a>

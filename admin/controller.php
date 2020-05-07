@@ -97,24 +97,25 @@
 	}elseif($page == "penyetoran" && $action == "insert")
 	{
 		  
-		  $id_user            = $_SESSION['id'];
-		  $tgl                = $_POST['tgl'];
-		  $nama_muzakki       = $_POST['nama_muzakki'];
-		  $alamat             = $_POST['alamat'];
-		  $jumlah_jiwa        = $_POST['jumlah_jiwa'];
-		  $zakat_fitrah_beras = $_POST['zakat_fitrah_beras'];
-		  $zakat_fitrah_uang  = $_POST['zakat_fitrah_uang'];
-		  $zakat_mal		  = $_POST['zakat_mal'];
-		  $infaq_sedekah      = $_POST['infaq_sedekah'];
-		  $arah_infaqsedekah  = $_POST['arah_infaqsedekah'];
-		  $fidyah             = $_POST['fidyah'];
+		  $id_user             = $_SESSION['id'];
+		  $tgl                 = $_POST['tgl'];
+		  $nama_muzakki        = $_POST['nama_muzakki'];
+		  $alamat              = $_POST['alamat'];
+		  $jumlah_jiwa         = $_POST['jumlah_jiwa'];
+		  $zakat_fitrah_beras  = $_POST['zakat_fitrah_beras'];	  
+		  $harga_beras_dimakan = $_POST['harga_beras_dimakan'];
+		  $zakat_fitrah_uang   = $_POST['zakat_fitrah_uang'];
+		  $zakat_mal		   = $_POST['zakat_mal'];
+		  $infaq_sedekah       = $_POST['infaq_sedekah'];
+		  $arah_infaqsedekah   = $_POST['arah_infaqsedekah'];
+		  $fidyah              = $_POST['fidyah'];
 
 		  $result = mysqli_query($mysqli, "INSERT INTO tb_setoran_zis 
-		  	                                (id, id_user, tgl, nama_muzakki, alamat, jumlah_jiwa, zakat_fitrah_beras,
+		  	                                (id, id_user, tgl, nama_muzakki, alamat, jumlah_jiwa, zakat_fitrah_beras, harga_beras_dimakan,
 		  	                                zakat_fitrah_uang, zakat_mal, infaq_sedekah, arah_infaqsedekah, fidyah) 
 			                                VALUES
-			                                (null, $id_user, '$tgl', '$nama_muzakki', '$alamat', '$jumlah_jiwa', '$zakat_fitrah_beras',
-			                                '$zakat_fitrah_uang', '$zakat_mal', '$infaq_sedekah', '$arah_infaqsedekah', '$fidyah')");
+			                                (null, $id_user, '$tgl', '$nama_muzakki', '$alamat', '$jumlah_jiwa', '$zakat_fitrah_beras', 
+			                                '$harga_beras_dimakan', '$zakat_fitrah_uang', '$zakat_mal', '$infaq_sedekah', '$arah_infaqsedekah', '$fidyah')");
 		  
 		  if($result){ 
 		      echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/penyetoran.php" </script>';
@@ -126,32 +127,34 @@
 	}elseif($page == "penyetoran" && $action == "update")
 	{
 
-		  $id                 = $_POST['id'];
-		  $tgl                = $_POST['tgl'];
-		  $nama_muzakki       = $_POST['nama_muzakki'];
-		  $alamat             = $_POST['alamat'];
-		  $jumlah_jiwa        = $_POST['jumlah_jiwa'];
-		  $zakat_fitrah_beras = $_POST['zakat_fitrah_beras'];
-		  $zakat_fitrah_uang  = $_POST['zakat_fitrah_uang'];
-		  $zakat_mal		  = $_POST['zakat_mal'];
-		  $infaq_sedekah      = $_POST['infaq_sedekah'];
-		  $arah_infaqsedekah  = $_POST['arah_infaqsedekah'];
-		  $fidyah             = $_POST['fidyah'];
+		  $id                  = $_POST['id'];
+		  $tgl                 = $_POST['tgl'];
+		  $nama_muzakki        = $_POST['nama_muzakki'];
+		  $alamat              = $_POST['alamat'];
+		  $jumlah_jiwa         = $_POST['jumlah_jiwa'];
+		  $zakat_fitrah_beras  = $_POST['zakat_fitrah_beras'];		  
+		  $harga_beras_dimakan = $_POST['harga_beras_dimakan'];
+		  $zakat_fitrah_uang   = $_POST['zakat_fitrah_uang'];
+		  $zakat_mal		   = $_POST['zakat_mal'];
+		  $infaq_sedekah       = $_POST['infaq_sedekah'];
+		  $arah_infaqsedekah   = $_POST['arah_infaqsedekah'];
+		  $fidyah              = $_POST['fidyah'];
 
 
 
 				  $result = mysqli_query($mysqli, "UPDATE tb_setoran_zis
 				  									SET 
-				  									   tgl                = '$tgl',
-				  									   nama_muzakki       = '$nama_muzakki',
-				  									   alamat 			  = '$alamat',
-				  									   jumlah_jiwa 		  = '$jumlah_jiwa',
-				  									   zakat_fitrah_beras = '$zakat_fitrah_beras',
-				  									   zakat_fitrah_uang  = '$zakat_fitrah_uang',
-				  									   zakat_mal 		  = '$zakat_mal',
-				  									   infaq_sedekah 	  = '$infaq_sedekah',
-				  									   arah_infaqsedekah  = '$arah_infaqsedekah',
-				  									   fidyah 			  = '$fidyah'
+				  									   tgl                 = '$tgl',
+				  									   nama_muzakki        = '$nama_muzakki',
+				  									   alamat 			   = '$alamat',
+				  									   jumlah_jiwa 		   = '$jumlah_jiwa',
+				  									   zakat_fitrah_beras  = '$zakat_fitrah_beras',
+				  									   harga_beras_dimakan = '$harga_beras_dimakan',
+				  									   zakat_fitrah_uang   = '$zakat_fitrah_uang',
+				  									   zakat_mal 		   = '$zakat_mal',
+				  									   infaq_sedekah 	   = '$infaq_sedekah',
+				  									   arah_infaqsedekah   = '$arah_infaqsedekah',
+				  									   fidyah 			   = '$fidyah'
 				  									   WHERE id = $id
 				  									") or die(mysqli_error($mysqli));
 
@@ -186,6 +189,61 @@
 
 		      		echo '<script language="javascript"> 
 		      				window.location.href = "'.$base_url_back.'/penyetoran.php" 
+		      			 </script>';
+
+		  }else{
+
+			      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+			  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
+			  
+		  
+		  }
+
+
+	
+	}elseif($page == "penyetoran" && $action == "konversi")
+	{
+
+
+          $dt  = mysqli_query($mysqli, "SELECT * FROM users WHERE id = $_SESSION[id]");
+          $dx  = mysqli_fetch_array($dt);
+          $brs = $dx['set_beras_muzakki']; 
+
+		  $id    		= $_POST['id'];
+		  $harga_beras  = $_POST['harga_beras'];		  
+		  $zakat_beras  = $_POST['zakat_beras'];		  
+		  $zakat_uang   = $_POST['zakat_uang'];		  
+		  $beras  		= $_POST['beras'];		  
+		  $uang  		= $_POST['uang'];
+
+		  if($_POST['konv']=="uang2beras"){
+		 
+		  	$zakat_fitrah_beras  = $zakat_beras + ($beras * $brs);	
+		  	$zakat_fitrah_uang   = $zakat_uang  - ($beras * $brs * $harga_beras);
+		 
+		  }elseif($_POST['konv']=="beras2uang"){
+
+		  	$zakat_fitrah_beras  = $zakat_beras - ($uang * $brs);	
+		  	$zakat_fitrah_uang   = $zakat_uang  + ($uang * $brs * $harga_beras);
+		 
+		  }
+
+
+
+		  $result = mysqli_query($mysqli, "UPDATE tb_setoran_zis
+				  						   SET 
+				  								zakat_fitrah_beras  = '$zakat_fitrah_beras',
+				  								zakat_fitrah_uang   = '$zakat_fitrah_uang'
+				  								WHERE id = $id
+				  							") or die(mysqli_error($mysqli));
+
+
+
+		  
+		  if(isset($result)){ 
+
+		      		echo '<script language="javascript"> 
+		      				window.location.href = "'.$base_url_back.'/konversi_beras.php?id='.$id.'" 
 		      			 </script>';
 
 		  }else{
