@@ -101,6 +101,13 @@
                                         <input type="number" class="form-control" name="set_fitrah_uang" min="0" placeholder="Aturan Penyaluran Zakat Uang (RUPIAH).." onkeypress="return onlyNumbers();" value="<?php echo $d['set_fitrah_uang'];?>">
                                     </div>
                                 </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-static pull-left">Aturan Penerimaan Beras Per Orang (Liter)</label>
+                                        <input type="number" class="form-control" name="set_beras_muzakki" min="0" placeholder="Aturan Penerimaan Beras Per Orang.." onkeypress="return onlyNumbers();" value="<?php echo $d['set_beras_muzakki'];?>">
+                                    </div>
+                                </div>
 <!-- 
                                 <div class="col-lg-12">
                                     <div class="form-group">
