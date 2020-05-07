@@ -1,13 +1,15 @@
 <?php
     
+
+    include 'config/auth.php';
     include 'config/connect-db.php';
     include 'config/base-url.php';
-    include 'config/auth.php';
- 
+
+
 	$page    = $_GET['page'];
-	$action  = $_GET['action'];
-
-
+	$action  = $_GET['action'];    
+	
+ 
     /// PANITIA
 	if($page == "panitia" && $action == "insert")
 	{

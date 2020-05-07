@@ -13,6 +13,15 @@
                 $dt  = mysqli_query($mysqli, "SELECT * FROM users WHERE id = $id_user");
                 $dx  = mysqli_fetch_array($dt);
                 $brs = $dx['set_beras_muzakki']; 
+
+                // Mencegah User Akses Bukan Haknya
+                $dt = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_setoran_zis WHERE id = $id AND  id_user = $_SESSION[id]");
+                $d  = mysqli_fetch_array($dt);
+
+                if($d['tot'] == 0){
+                    echo '<script language="javascript"> alert("Anda Tidak Boleh Mengakses Data Ini!"); window.location.href = "penyetoran.php" </script>';
+                }
+                
             ?>
 
 

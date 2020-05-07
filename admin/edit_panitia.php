@@ -6,6 +6,15 @@
                 $id = $_GET['id'];
                 $dt = mysqli_query($mysqli, "SELECT * FROM tb_panitia_zis WHERE id = $id");
                 $d  = mysqli_fetch_array($dt);
+
+                // Mencegah User Akses Bukan Haknya
+                $dt = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_panitia_zis WHERE id = $id AND  id_user = $_SESSION[id]");
+                $d  = mysqli_fetch_array($dt);
+
+                if($d['tot'] == 0){
+                    echo '<script language="javascript"> alert("Anda Tidak Boleh Mengakses Data Ini!"); window.location.href = "penyetoran.php" </script>';
+                }
+                
             ?>
 
 
