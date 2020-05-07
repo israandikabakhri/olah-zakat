@@ -1,7 +1,7 @@
 <?php include('template/top.php') ?>
     
 
-<link rel="stylesheet" type="text/css" href="http://localhost/sipinawa/public/plugin_lain/bootstrap_datetimepicker/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" href="assets/datepicker/bootstrap-datetimepicker.min.css">
 
 <form action="controller.php?page=penyetoran&action=insert" id="form_proposal" enctype="multipart/form-data" method="post">
 
@@ -193,7 +193,7 @@
 </form>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="http://localhost/sipinawa/public/plugin_lain/bootstrap_datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/datepicker/bootstrap-datetimepicker.min.js"></script>
 
 <script type="text/javascript">
 
@@ -210,13 +210,6 @@
          forceParse: 0,
         format: 'yyyy-mm-dd'
     });
-
-    // $(function () {
-    //   $(".tanggal").datepicker({ 
-    //         autoclose: true, 
-    //         todayHighlight: true
-    //   });
-    // });
 
     $(this).ready(function(){
        check_radio(); 
