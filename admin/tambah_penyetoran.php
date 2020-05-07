@@ -120,13 +120,13 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         Total Jumlah Infaq/Sedekah (Rp)
-                                        <input type="number" class="form-control" name="infaq_sedekah" placeholder="Total Jumlah Infaq/Sedekah.." required onkeypress="return onlyNumbers();" value="0" min="0">
+                                        <input type="number" class="form-control" name="infaq_sedekah" placeholder="Total Jumlah Infaq/Sedekah.." required onkeypress="return onlyNumbers();" value="0" min="0" id="infaq_sedekah">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         Arah Infaq/Sedekah
-                                        <select class="form-control" name="arah_infaqsedekah">
+                                        <select class="form-control" name="arah_infaqsedekah" id="arah_infaqsedekah">
                                             <option value="">--- PILIH ---</option>
                                             <?php
                                                 $dt = mysqli_query($mysqli, "SELECT * FROM ref_arah_infaqsedeqah");
@@ -164,6 +164,13 @@
                               return true;
 
                           }
+
+                          $('#infaq_sedekah').on('change', function (e) {
+                             let vall = $('#infaq_sedekah').val();
+                             if(vall > 0){
+                                $('#arah_infaqsedekah').attr('required', true);
+                             }else{ $('#arah_infaqsedekah').attr('required', false);}
+                          });
                         </script>
 
 
