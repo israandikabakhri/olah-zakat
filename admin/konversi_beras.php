@@ -15,12 +15,12 @@
                 $brs = $dx['set_beras_muzakki']; 
 
                 // Mencegah User Akses Bukan Haknya
-                $dt = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_setoran_zis WHERE id = $id AND  id_user = $_SESSION[id]");
-                $d  = mysqli_fetch_array($dt);
+                $dw = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_setoran_zis WHERE id = $id AND  id_user = $_SESSION[id]");
+                $dc  = mysqli_fetch_array($dw);
 
-                if($d['tot'] == 0){
+                if($dc['tot'] == 0){
                     echo '<script language="javascript"> alert("Anda Tidak Boleh Mengakses Data Ini!"); window.location.href = "penyetoran.php" </script>';
-                }
+                } 
                 
             ?>
 
@@ -49,7 +49,7 @@
 
                         <table width="55%">
                             <tr>
-                                <td width="320"><b>Tanggal Penyetoran</td>
+                                <td width="320"><b>Tanggal Penerimaan</td>
                                 <td><?php echo TanggalIndo($d['tgl']); ?></td> 
                             </tr>
                             <tr>

@@ -39,7 +39,7 @@
 
                                 <tr>
                                   <td data-label="No" scope="row" >1</td>
-                                  <td data-label="Nama Laporam">Laporan Rincian Muzakki/Penyetor ZIS</td>
+                                  <td data-label="Nama Laporam">Laporan Rincian Penerimaan ZIS</td>
                                   <td data-label="Aksi">
                                     <a href="laporan/penyetor.php" target="_blank" class="btn btn-success">Cetak</a>
                                   </td>
@@ -63,7 +63,7 @@
 
                                 <tr>
                                   <td data-label="No" scope="row" >2</td>
-                                  <td data-label="Nama Laporam">Cetak Kupon Penerima ZIS</td>
+                                  <td data-label="Nama Laporam">Cetak Kupon Penyaluran ZIS</td>
                                   <td data-label="Aksi">
                                     <a href="laporan/kupon.php" target="_blank" class="btn btn-success">Cetak</a>
                                   </td>

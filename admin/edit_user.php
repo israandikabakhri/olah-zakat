@@ -82,13 +82,40 @@
                     </script>
 
                     <div class="mbr-section col-md-5 col-md-offset-1">
-                        <h1 class="mbr-section-title display-3" style="font-size: 28px;">ATURAN PENYALURAN MASJID</h1>
+                        <h1 class="mbr-section-title display-3" style="font-size: 28px;">ATURAN PENERIMAAN MASJID</h1>
                         <hr>
                         <div class="mbr-section-text">
                             <div class='row'>
 
+                                
                                 <div class="col-lg-12">
-                       
+                                    <div class="form-group">
+                                        <label class="form-control-static pull-left">Aturan Penerimaan Beras Per Orang (Liter)</label>
+                                        <input type="number" class="form-control" name="set_beras_muzakki" min="0" placeholder="Aturan Penerimaan Beras Per Orang.." onkeypress="return onlyNumbers();" value="<?php echo $d['set_beras_muzakki'];?>">
+                                    </div>
+                                </div>
+
+
+
+                                <span style="text-align: left!important;font-family: calibri;">
+                                  <b style="color: red;">Perhatian:</b> <br> 
+                                    <b>Aturan Penerimaan</b> Ini Wajib Diatur Diawal <b>Sebelum</b> Penggunaan Aplikasi, Jika Diubah Sementara Data Penerimaan Sudah Ada, Maka Data Akan Berantakan. Segera Hubungi Admin Jika Hal Itu Terjadi.
+                                    <br><br>
+                                    <!-- 2. <b>Perkiraan Penerima Zakat</b> Adalah Rumus Penunjang Untuk Menghasilkan Jumlah Hasil Penyaluran Berdasarkan Ketetapan Aturan Di atasnya Yaitu Jumlah Beras dan Uang Bagi Penerima, Namun ini Diisi Jika Belum Memiliki Database Penerima Zakat Dalam APlikasi Ini.  -->
+                                </span>
+
+                            </div>
+                        </div>    
+                        
+                        <h1 class="mbr-section-title display-3" style="font-size: 28px;">ATURAN PENYALURAN MASJID</h1>
+                        <hr>
+
+                        <div class="mbr-section-text">
+                            <div class='row'>
+
+                              
+
+                                <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-control-static pull-left"><span class="fa fa-mosque"></span> Aturan Penyaluran Zakat Beras (LITER)</label>
                                         <input type="text" class="form-control" name="set_fitrah_beras" placeholder="Aturan Penyaluran Zakat Beras (LITER).." value="<?php echo $d['set_fitrah_beras'];?>">
@@ -101,20 +128,7 @@
                                         <input type="number" class="form-control" name="set_fitrah_uang" min="0" placeholder="Aturan Penyaluran Zakat Uang (RUPIAH).." onkeypress="return onlyNumbers();" value="<?php echo $d['set_fitrah_uang'];?>">
                                     </div>
                                 </div>
-
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="form-control-static pull-left">Aturan Penerimaan Beras Per Orang (Liter)</label>
-                                        <input type="number" class="form-control" name="set_beras_muzakki" min="0" placeholder="Aturan Penerimaan Beras Per Orang.." onkeypress="return onlyNumbers();" value="<?php echo $d['set_beras_muzakki'];?>">
-                                    </div>
-                                </div>
-<!-- 
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="form-control-static pull-left"> Perkiraan Penerima Zakat (ORANG)</label>
-                                        <input type="text" class="form-control" name="perkiraan_penerima" placeholder="Perkiraan Penerima Zakat (ORANG).." value="<?php echo $d['perkiraan_penerima'];?>">
-                                    </div>
-                                </div> -->
+                                
 
                                 <span style="text-align: left!important;font-family: calibri;">
                                   <b>Ket:</b> <br> 
@@ -122,6 +136,9 @@
                                     <br><br>
                                     <!-- 2. <b>Perkiraan Penerima Zakat</b> Adalah Rumus Penunjang Untuk Menghasilkan Jumlah Hasil Penyaluran Berdasarkan Ketetapan Aturan Di atasnya Yaitu Jumlah Beras dan Uang Bagi Penerima, Namun ini Diisi Jika Belum Memiliki Database Penerima Zakat Dalam APlikasi Ini.  -->
                                 </span>
+
+
+                                
 
                             </div>
                         </div>

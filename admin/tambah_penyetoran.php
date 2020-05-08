@@ -17,7 +17,7 @@
                 <div class="row">
 
                     <div class="mbr-section col-md-12 col-lg-offset-4 col-lg-8 col-xl-offset-0 col-xl-12" id="ringkasan" style="padding-bottom: 0px !important;">
-                        <h4 class="mbr-section-title display-3">Tambah Data Penyetoran ZIS</h4>
+                        <h4 class="mbr-section-title display-3">Tambah Data Penerimaan ZIS</h4>
 
                         <hr>
 
@@ -25,8 +25,8 @@
                             <div class='row'>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        Tanggal Penyetoran
-                                        <input type="date" class="form-control tanggal" name="tgl" placeholder="Tanggal Penyetoran.." data-link-format="yyyy-mm-dd" required>
+                                        Tanggal Penerimaan
+                                        <input type="date" class="form-control tanggal" name="tgl" placeholder="Tanggal Penerimaan.." data-link-format="yyyy-mm-dd" required>
                                     </div>
                                 </div>
                             </div>

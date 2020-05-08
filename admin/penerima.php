@@ -17,7 +17,7 @@
                 <div class="row">
 
                     <div class="mbr-section col-md-12 col-lg-offset-4 col-lg-8 col-xl-offset-0 col-xl-12" id="ringkasan" style="padding-bottom: 0px !important;">
-                        <h4 class="mbr-section-title display-4">Penginputan Penerimaan Zakat</h4>
+                        <h4 class="mbr-section-title display-4">Penginputan Penyaluran Zakat</h4>
 
                         <hr>
 
@@ -31,7 +31,7 @@
                             <div class='row'>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        Total Jumlah Penerima Saat Ini Adalah: <b><?php echo $data['t']; ?> Data</b>
+                                        Total Penyaluran Saat Ini Adalah: <b><?php echo $data['t']; ?> Data</b>
                                     </div>
                                 </div>
                             </div>
