@@ -31,7 +31,15 @@
 		<h1>LAPORAN RINCIAN MUZAKKI/PENYETOR ZIS <br>
 			PANITIA ZAKAT FITRAH <?php echo strtoupper($da['nama']); ?> <?php echo $dy['tahun_masehi'].' M/'.$dy['tahun_hijriah'].' H'; ?><br>
 		    <?php echo strtoupper($da['alamat']); ?></h1>
-            <b>Tanggal Cetak:</b> <?php echo TanggalIndo2(DATE('Y-m-d')).' '.date('H:i:s'); ?><br><br>
+            <b>Tanggal Cetak:</b> <?php echo TanggalIndo2(DATE('Y-m-d')).' '.date('H:i:s'); ?><br>
+            <?php 
+            	if($_GET['cetak']=="zakat-beras"){ echo "(<i>Khusus Zakat Fitrah Beras</i>)"; }
+            	elseif($_GET['cetak']=="zakat-uang"){ echo "(<i>Khusus Zakat Fitrah Uang</i>)"; }
+            	elseif($_GET['cetak']=="zakat-maal"){ echo "(<i>Khusus Zakat Maal</i>)"; }
+            	elseif($_GET['cetak']=="infaq-sedeqah"){ echo "(<i>Khusus Infaq Sedeqah</i>)"; }
+            	elseif($_GET['cetak']=="fidyah"){ echo "(<i>Khusus Fidyah</i>)"; }
+            ?>
+            <br><br>
 	</center>
 
 	<table border="1" style="width: 100%;font-family: calibri;border-collapse: collapse;">
@@ -56,7 +64,15 @@
             $masjid=0;
             $fakir=0;
             $yatim=0;
-            $dt = mysqli_query($mysqli, "SELECT * FROM tb_setoran_zis WHERE id_user = $id ORDER BY tgl");
+
+            if($_GET['cetak'] == 'all'){ $dt = mysqli_query($mysqli, "SELECT * FROM tb_setoran_zis WHERE id_user = $id ORDER BY tgl"); }
+            elseif($_GET['cetak'] == 'zakat-beras'){ $dt = mysqli_query($mysqli, "SELECT * FROM tb_setoran_zis WHERE zakat_fitrah_beras > 0 AND id_user = $id ORDER BY tgl"); }
+            elseif($_GET['cetak'] == 'zakat-uang'){ $dt = mysqli_query($mysqli, "SELECT * FROM tb_setoran_zis WHERE zakat_fitrah_uang > 0 AND id_user = $id ORDER BY tgl"); }
+            elseif($_GET['cetak'] == 'zakat-maal'){ $dt = mysqli_query($mysqli, "SELECT * FROM tb_setoran_zis WHERE zakat_mal > 0 AND id_user = $id ORDER BY tgl"); }
+            elseif($_GET['cetak'] == 'infaq-sedeqah'){ $dt = mysqli_query($mysqli, "SELECT * FROM tb_setoran_zis WHERE infaq_sedekah > 0 AND id_user = $id ORDER BY tgl"); }
+            elseif($_GET['cetak'] == 'fidyah'){ $dt = mysqli_query($mysqli, "SELECT * FROM tb_setoran_zis WHERE fidyah > 0 AND id_user = $id ORDER BY tgl"); }
+
+            
             while($d = mysqli_fetch_array($dt)){
 
             if($d['arah_infaqsedekah']=="MASJID"){ $masjid = $masjid + $d['infaq_sedekah']; }	
@@ -79,7 +95,10 @@
 
 		<?php
             $no=1;
-            $ds = mysqli_query($mysqli, "SELECT 
+
+
+            if($_GET['cetak'] == 'all'){
+                  $ds = mysqli_query($mysqli, "SELECT 
 										  SUM(jumlah_jiwa) AS tot_jml_jiwa, 
 										  SUM(zakat_fitrah_uang) AS tot_fitrah_uang,
 										  SUM(zakat_fitrah_beras) AS tot_fitrah_beras,
@@ -87,7 +106,58 @@
 										  SUM(infaq_sedekah) AS tot_infaq_sedekah,
 										  SUM(fidyah) AS tot_fidyah
 										FROM tb_setoran_zis 
-										WHERE id_user = $id ");
+										WHERE id_user = $id "); 
+            }elseif($_GET['cetak'] == 'zakat-beras'){ 
+                  $ds = mysqli_query($mysqli, "SELECT 
+										  SUM(jumlah_jiwa) AS tot_jml_jiwa, 
+										  SUM(zakat_fitrah_uang) AS tot_fitrah_uang,
+										  SUM(zakat_fitrah_beras) AS tot_fitrah_beras,
+										  SUM(zakat_mal) AS tot_zakat_mal,
+										  SUM(infaq_sedekah) AS tot_infaq_sedekah,
+										  SUM(fidyah) AS tot_fidyah
+										FROM tb_setoran_zis 
+										WHERE id_user = $id AND zakat_fitrah_beras > 0 "); 
+            }elseif($_GET['cetak'] == 'zakat-uang'){ 
+                  $ds = mysqli_query($mysqli, "SELECT 
+										  SUM(jumlah_jiwa) AS tot_jml_jiwa, 
+										  SUM(zakat_fitrah_uang) AS tot_fitrah_uang,
+										  SUM(zakat_fitrah_beras) AS tot_fitrah_beras,
+										  SUM(zakat_mal) AS tot_zakat_mal,
+										  SUM(infaq_sedekah) AS tot_infaq_sedekah,
+										  SUM(fidyah) AS tot_fidyah
+										FROM tb_setoran_zis 
+										WHERE id_user = $id AND zakat_fitrah_uang > 0 ");
+            }elseif($_GET['cetak'] == 'zakat-maal'){ 
+                  $ds = mysqli_query($mysqli, "SELECT 
+										  SUM(jumlah_jiwa) AS tot_jml_jiwa, 
+										  SUM(zakat_fitrah_uang) AS tot_fitrah_uang,
+										  SUM(zakat_fitrah_beras) AS tot_fitrah_beras,
+										  SUM(zakat_mal) AS tot_zakat_mal,
+										  SUM(infaq_sedekah) AS tot_infaq_sedekah,
+										  SUM(fidyah) AS tot_fidyah
+										FROM tb_setoran_zis 
+										WHERE id_user = $id AND zakat_mal > 0 ");
+            }elseif($_GET['cetak'] == 'infaq-sedeqah'){ 
+                  $ds = mysqli_query($mysqli, "SELECT 
+										  SUM(jumlah_jiwa) AS tot_jml_jiwa, 
+										  SUM(zakat_fitrah_uang) AS tot_fitrah_uang,
+										  SUM(zakat_fitrah_beras) AS tot_fitrah_beras,
+										  SUM(zakat_mal) AS tot_zakat_mal,
+										  SUM(infaq_sedekah) AS tot_infaq_sedekah,
+										  SUM(fidyah) AS tot_fidyah
+										FROM tb_setoran_zis 
+										WHERE id_user = $id AND infaq_sedekah > 0");
+            }elseif($_GET['cetak'] == 'fidyah'){ 
+                  $ds = mysqli_query($mysqli, "SELECT 
+										  SUM(jumlah_jiwa) AS tot_jml_jiwa, 
+										  SUM(zakat_fitrah_uang) AS tot_fitrah_uang,
+										  SUM(zakat_fitrah_beras) AS tot_fitrah_beras,
+										  SUM(zakat_mal) AS tot_zakat_mal,
+										  SUM(infaq_sedekah) AS tot_infaq_sedekah,
+										  SUM(fidyah) AS tot_fidyah
+										FROM tb_setoran_zis 
+										WHERE id_user = $id AND fidyah > 0");
+            }
             $dd = mysqli_fetch_array($ds);
         ?>
 

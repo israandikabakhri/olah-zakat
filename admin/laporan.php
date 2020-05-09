@@ -41,7 +41,17 @@
                                   <td data-label="No" scope="row" >1</td>
                                   <td data-label="Nama Laporam">Laporan Rincian Penerimaan ZIS</td>
                                   <td data-label="Aksi">
-                                    <a href="laporan/penyetor.php" target="_blank" class="btn btn-success">Cetak</a>
+                                    <form action="laporan/penyetor.php" method="get">
+                                      <select name="cetak" class="form-control">
+                                        <option value="all">SEMUA</option>
+                                        <option value="zakat-uang">HANYA YANG ZAKAT FITRAH UANG</option>
+                                        <option value="zakat-beras">HANYA YANG ZAKAT FITRAH BERAS</option>
+                                        <option value="zakat-maal">HANYA YANG ZAKAT MAAL</option>
+                                        <option value="infaq-sedeqah">HANYA YANG INFAQ SEDEQAH</option>
+                                        <option value="fidyah">HANYA YANG FIDYAH</option>
+                                      </select>
+                                      <input type="submit" class="btn btn-success" value="Cetak"></input>
+                                    </form>
                                   </td>
                                 </tr>
                               <!-- 
