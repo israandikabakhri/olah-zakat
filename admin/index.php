@@ -1,8 +1,8 @@
 <?php 
 
-      include('template/top.php');
-      include "../config/auth.php"; 
-      include '../config/connect-db.php';
+      include 'template/top.php';
+      include "config/auth.php"; 
+      include 'config/connect-db.php';
 
       $id=$_SESSION['id'];
       $dt = mysqli_query($mysqli, "SELECT * FROM users WHERE id = $id");

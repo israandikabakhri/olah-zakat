@@ -47,9 +47,9 @@
 
                         <input type="hidden" name="id" value="<?php echo $d['id'] ?>">
 
-                        <table width="55%">
+                        <table width="100%" style="font-size: 13px;">
                             <tr>
-                                <td width="320"><b>Tanggal Penerimaan</td>
+                                <td width="230"><b>Tanggal Penerimaan</td>
                                 <td><?php echo TanggalIndo($d['tgl']); ?></td> 
                             </tr>
                             <tr>
@@ -69,7 +69,7 @@
                                 <td>Rp. <?php echo number_format($d['zakat_fitrah_uang'],0) ?></td>
                             </tr>
                             <tr>
-                                <td><b>Total Jumlah Zakat Uang</td>
+                                <td><b>Total Jumlah Zakat Beras</td>
                                 <td><?php echo number_format($d['zakat_fitrah_beras'],0) ?> Liter</td>
                             </tr>
                         </table>
@@ -83,7 +83,7 @@
                         <input type="hidden" name="zakat_uang" value="<?php echo $d['zakat_fitrah_uang']; ?>">
 
                         <br>
-                        <input type="radio" name="konv" value="uang2beras" checked> <b style="color: blue;">Konversi Uang Ke Beras</b> &nbsp;&nbsp;
+                        <input type="radio" name="konv" value="uang2beras" checked> <b style="color: blue;">Konversi Uang Ke Beras</b> <br>
                         <input type="radio" name="konv" value="beras2uang"> <b style="color: green;">Konversi Beras Ke Uang</b>
                         <br><br>
 
@@ -163,7 +163,6 @@
 
                             <div class="row">
                                 <div class="col-lg-12 text-xs-right">
-                                    <a class="btn btn-lg btn-info-outline" href="penyetoran.php"><span class="fa fa-backward"></span> KEMBALI </a>
                                     <button type="submit" name="simpan" class="btn btn-lg btn-primary">Konversikan</span></button>
                                 </div>
                             </div>

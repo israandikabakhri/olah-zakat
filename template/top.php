@@ -52,7 +52,7 @@
 			<li><a href="index.php">Beranda</a></li>
 			<li><a href="index.php#fitur">Fitur</a></li>
 			<li><a href="index.php#mitra-masjid">Mitra Masjid</a></li>
-			<li><a href="index.phpkontributor">Kontributor</a></li>
+			<li><a href="index.php#kontributor">Kontributor</a></li>
 		</ul>
 	</header>
 	<!-- Header section end -->

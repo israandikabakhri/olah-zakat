@@ -36,16 +36,16 @@ include("config/connect-db.php");
     <script src="assets/jquery-ui.js.download"></script>
     <script src="assets/pace.min.js.download"></script>
     
-    <div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"><div>Butuh bantuan kami?</div></div>
+    <div role="log" ariax-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"><div>Butuh bantuan kami?</div></div>
     <link rel="stylesheet" type="text/css" href="assets/css/gigo-responsive.css">
 
     <style type="text/css">
         :root {
-          --Nmain-color: #fff;
-          --Nmain-bg-color: #2196f3;
-          --Nmain-bg-color-hover: #69b2ec;
-          --Ncont-bg-color: #f8f8f8;
-          --Nhover-nav-color: #dce1ed;
+          --nmain-color: #fff;
+          --nmain-bg-color: #2196f3;
+          --nmain-bg-color-hover: #69b2ec;
+          --ncont-bg-color: #f8f8f8;
+          --nhover-nav-color: #dce1ed;
         }
 
         #menu-2 .link{ font-size: 14px; }
@@ -54,7 +54,7 @@ include("config/connect-db.php");
         #menu-2 .nav-dropdown-sm,
         #menu-2 .nav-dropdown-sm .link[aria-expanded="true"],
         #menu-2 .nav-dropdown-sm .dropdown-menu {
-          background: var(--Nmain-bg-color);
+          background: var(--nmain-bg-color);
         }
 
         /*atur hover menu*/
@@ -62,31 +62,31 @@ include("config/connect-db.php");
         #menu-2 .dropdown-item:hover,
         #menu-2 .link:focus,
         #menu-2 .dropdown-item:focus {
-          color: var(--Nhover-nav-color);
+          color: var(--nhover-nav-color);
         }
 
         .gigo-responsive th {
-          background-color: var(--Nmain-bg-color);
-          color: var(--Nmain-color);
+          background-color: var(--nmain-bg-color);
+          color: var(--nmain-color);
         }
 
         .gigo-responsive tr {
-          background-color: var(--Ncont-bg-color);
-          border: 1px solid var(--Nmain-bg-color);
+          background-color: var(--ncont-bg-color);
+          border: 1px solid var(--nmain-bg-color);
         }
 
         .gigo-responsive tr {
-          border-bottom: 3px solid var(--Nmain-bg-color);
+          border-bottom: 3px solid var(--nmain-bg-color);
         }
       
         .gigo-responsive td {
-          border-bottom: 1px solid var(--Nmain-bg-color);
+          border-bottom: 1px solid var(--nmain-bg-color);
         }
         
         .btn-warning {
-          background-color: var(--Nmain-bg-color);
-          border-color: var(--Nmain-bg-color);
-          color: var(--Nmain-color);
+          background-color: var(--nmain-bg-color);
+          border-color: var(--nmain-bg-color);
+          color: var(--nmain-color);
         }
 
        .btn-warning:hover,
@@ -94,9 +94,9 @@ include("config/connect-db.php");
        .btn-warning.focus,
        .btn-warning:active,
        .btn-warning.active {
-          color: var(--Nmain-color);
-          background-color: var(--Nmain-bg-color-hover);
-          border-color: var(--Nmain-bg-color-hover);
+          color: var(--nmain-color);
+          background-color: var(--nmain-bg-color-hover);
+          border-color: var(--nmain-bg-color-hover);
        }
 
     </style>
