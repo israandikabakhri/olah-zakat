@@ -9,10 +9,10 @@
                 $d  = mysqli_fetch_array($dt);
 
                 // Mencegah User Akses Bukan Haknya
-                $dt = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_setoran_zis WHERE id = $id AND  id_user = $_SESSION[id]");
-                $d  = mysqli_fetch_array($dt);
+                $dx = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_setoran_zis WHERE id = $id AND  id_user = $_SESSION[id]");
+                $dv  = mysqli_fetch_array($dx);
 
-                if($d['tot'] == 0){
+                if($dv['tot'] == 0){
                     echo '<script language="javascript"> alert("Anda Tidak Boleh Mengakses Data Ini!"); window.location.href = "penyetoran.php" </script>';
                 }
             ?>
@@ -35,10 +35,11 @@
                 <div class="row">
 
                     <div class="mbr-section col-md-12 col-lg-offset-4 col-lg-8 col-xl-offset-0 col-xl-12" id="ringkasan" style="padding-bottom: 0px !important;">
-                        <h4 class="mbr-section-title display-3">Tambah Data Penerimaan ZIS</h4>
+                        <h4 class="mbr-section-title display-3">Edit Data Penerimaan ZIS</h4>
 
                         <hr>
-
+                        <b>INFO:</b> <b>Data Jumlah Jiwa</b> Dan <b>Harga Beras Yang Dimakan</b> Sudah Tidak Bisa Diubah. 
+                        <br><br>
                         <input type="hidden" name="id" value="<?php echo $d['id'] ?>">
 
                         <div class="mbr-section-text">
@@ -46,7 +47,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         Tanggal Penerimaan
-                                        <input type="date" class="form-control" name="tgl" placeholder="Tanggal Penerimaan.." required value="<?php echo $d['tgl'] ?>">
+                                        <input type="date" class="form-control tanggal" name="tgl" placeholder="Tanggal Penerimaan.." required value="<?php echo $d['tgl'] ?>" data-link-format="yyyy-mm-dd" >
                                     </div>
                                 </div>
                             </div>
@@ -63,6 +64,7 @@
                             </div>
                         </div>
 
+
                         <div class="mbr-section-text">
                             <div class='row'>
                                 <div class="col-lg-12">
@@ -74,23 +76,14 @@
                             </div>
                         </div>
 
-                        <div class="mbr-section-text">
-                            <div class='row'>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        Jumlah Jiwa (Orang) <i>*Termasuk Kepala Keluarga</i>
-                                        <input type="number" class="form-control" name="jumlah_jiwa" placeholder="Jumlah Jiwa.." required onkeypress="return onlyNumbers();" value="<?php echo $d['jumlah_jiwa'] ?>" min="0" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
 
                         <div class="mbr-section-text">
                             <div class='row'>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        Total Jumlah Zakat Beras (Liter)
-                                        <input type="number" class="form-control" name="zakat_fitrah_beras" placeholder="Total Jumlah Zakat Beras.." required onkeypress="return onlyNumbers();" value="<?php echo $d['zakat_fitrah_beras'] ?>" min="0" readonly>
+                                        Jumlah Jiwa (Orang) <i>*Termasuk Kepala Keluarga</i>
+                                        <input type="number" class="form-control" name="jumlah_jiwa" placeholder="Jumlah Jiwa.." required onkeypress="return onlyNumbers();" value="<?php echo $d['jumlah_jiwa'] ?>" min="0" readonly style="background-color: #c6c6c6;">
                                     </div>
                                 </div>
                             </div>
@@ -102,22 +95,15 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         Harga Beras Yang Dimakan Per Liter (Rp)
-                                        <input type="number" class="form-control" name="harga_beras_dimakan" placeholder="Harga Beras Yang Dimakan Per Liter.." required onkeypress="return onlyNumbers();" value="<?php echo $d['harga_beras_dimakan'] ?>" min="0" readonly>
+                                        <input type="number" class="form-control" name="harga_beras_dimakan" placeholder="Harga Beras Yang Dimakan Per Liter.." required onkeypress="return onlyNumbers();" value="<?php echo $d['harga_beras_dimakan'] ?>" min="0" readonly  style="background-color: #c6c6c6;">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mbr-section-text">
-                            <div class='row'>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        Total Jumlah Zakat Uang (Rp)
-                                        <input type="number" class="form-control" name="zakat_fitrah_uang" placeholder="Total Jumlah Zakat Uang.." required onkeypress="return onlyNumbers();" value="<?php echo $d['zakat_fitrah_uang'] ?>" min="0" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <input type="hidden" name="zakat_fitrah_beras" value="<?php echo $d['zakat_fitrah_beras'] ?>">
+                        <input type="hidden" name="zakat_fitrah_uang" value="<?php echo $d['zakat_fitrah_uang'] ?>">
+
 
                         <div class="mbr-section-text">
                             <div class='row'>

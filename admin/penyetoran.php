@@ -48,7 +48,7 @@
               <input type="text" class="form-control" id="KataKunci" name="KataKunci" placeholder="Kata kunci.." required="" value="<?php if (isset($_GET['KataKunci']))  echo $_GET['KataKunci']; ?>">
             </div>
             <button type="submit" class="btn btn-primary">Cari</button>
-            <!-- <a href="contoh.php" class="btn btn-danger">Reset</a> -->
+            <a href="penyetoran.php" class="btn btn-danger">Reset</a>
           </form>
         </div>
       </div>

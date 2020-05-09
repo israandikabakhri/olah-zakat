@@ -8,10 +8,10 @@
                 $d  = mysqli_fetch_array($dt);
 
                 // Mencegah User Akses Bukan Haknya
-                $dt = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_panitia_zis WHERE id = $id AND  id_user = $_SESSION[id]");
-                $d  = mysqli_fetch_array($dt);
+                $dx = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_panitia_zis WHERE id = $id AND  id_user = $_SESSION[id]");
+                $dv  = mysqli_fetch_array($dx);
 
-                if($d['tot'] == 0){
+                if($dv['tot'] == 0){
                     echo '<script language="javascript"> alert("Anda Tidak Boleh Mengakses Data Ini!"); window.location.href = "penyetoran.php" </script>';
                 }
                 

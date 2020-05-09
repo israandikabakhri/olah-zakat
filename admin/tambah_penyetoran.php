@@ -1,6 +1,12 @@
 <?php include('template/top.php') ?>
     
 
+            <?php
+                $id = $_SESSION['id'];
+                $dt = mysqli_query($mysqli, "SELECT * FROM users WHERE id = $id");
+                $d  = mysqli_fetch_array($dt);
+            ?>
+
 <link rel="stylesheet" type="text/css" href="assets/datepicker/bootstrap-datetimepicker.min.css">
 
 <form action="controller.php?page=penyetoran&action=insert" id="form_proposal" enctype="multipart/form-data" method="post">
@@ -20,6 +26,8 @@
                         <h4 class="mbr-section-title display-3">Tambah Data Penerimaan ZIS</h4>
 
                         <hr>
+
+                        <input type="hidden" name="set_beras_muzakki" class="balance" value="<?php echo $d['set_beras_muzakki']; ?>" id="c1">
 
                         <div class="mbr-section-text">
                             <div class='row'>
@@ -59,18 +67,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         Jumlah Jiwa (Orang) <i>*Termasuk Kepala Keluarga</i>
-                                        <input type="number" class="form-control" name="jumlah_jiwa" placeholder="Jumlah Jiwa.." required onkeypress="return onlyNumbers();" value="0" min="0">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mbr-section-text">
-                            <div class='row'>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        Total Jumlah Zakat Beras (Liter)
-                                        <input type="number" class="form-control" name="zakat_fitrah_beras" placeholder="Total Jumlah Zakat Beras.." required onkeypress="return onlyNumbers();" value="0" min="0">
+                                        <input type="number" class="form-control balance" name="jumlah_jiwa" placeholder="Jumlah Jiwa.." required onkeypress="return onlyNumbers();" value="0" min="0" id="c2">
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +78,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         Harga Beras Yang Dimakan Per Liter (Rp)
-                                        <input type="number" class="form-control" name="harga_beras_dimakan" placeholder="Harga Beras Yang Dimakan Per Liter.." required onkeypress="return onlyNumbers();" value="0" min="0">
+                                        <input type="number" class="form-control balance" name="harga_beras_dimakan" placeholder="Harga Beras Yang Dimakan Per Liter.." required onkeypress="return onlyNumbers();" value="0" min="0" id="c3">
                                     </div>
                                 </div>
                             </div>
@@ -91,8 +88,20 @@
                             <div class='row'>
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                        Total Jumlah Zakat Beras (Liter)
+                                        <input type="number" class="form-control balance" name="zakat_fitrah_beras" placeholder="Total Jumlah Zakat Beras.." required onkeypress="return onlyNumbers();" value="" min="0" id="c4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mbr-section-text">
+                            <div class='row'>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
                                         Total Jumlah Zakat Uang (Rp)
-                                        <input type="number" class="form-control" name="zakat_fitrah_uang" placeholder="Total Jumlah Zakat Uang.." required onkeypress="return onlyNumbers();" value="0" min="0">
+                                        <input type="number" class="form-control balance" name="zakat_fitrah_uang" placeholder="Total Jumlah Zakat Uang.." required onkeypress="return onlyNumbers();" value="" min="0" id="c5">
                                     </div>
                                 </div>
                             </div>
@@ -165,12 +174,53 @@
 
                           }
 
+                          // untuk form infaq
                           $('#infaq_sedekah').on('change', function (e) {
                              let vall = $('#infaq_sedekah').val();
                              if(vall > 0){
                                 $('#arah_infaqsedekah').attr('required', true);
                              }else{ $('#arah_infaqsedekah').attr('required', false);}
                           });
+
+                          //untuk validasi keseimbanngan zakat fitrah
+                          
+                          $('.balance').on('change', function () {
+                              var c1 = $('#c1').val();
+                              var c2 = $('#c2').val();
+                              var c3 = $('#c3').val();
+                              var c4 = $('#c4').val();
+                              var c5 = $('#c5').val();
+
+                              //alert('c1='+c1+'| c2='+c2+'| c3='+c3)
+                              if(c1 > 0 && c2 > 0 && c3 > 0){
+                                
+                                if(c4 == 0 || c4 == null){ var beraspembagi = c1*c2; var allowc4 = 1; }
+                                else if(c4 > 0){ var beraspembagi = c4; var allowc4 = 0; }
+                                
+                                if(c5 == 0 || c5 == null){ var uangpembagi = c1*c3*c2; var allowc5 = 1; }
+                                else if(c5 > 0){ var uangpembagi = c5; var allowc5 = 0; }
+
+                                var beras = (c1*c2)/beraspembagi;
+                                var uang  = (c1*c3*c2)/uangpembagi;  
+                                
+                                if(allowc4 == 1){beras == uang}
+                                else if(allowc5 == 1){uang == beras}
+
+                                //alert(beras+' && '+uang);  
+
+                                if(beras != uang){
+                                    //if(c4 > 0 || c5 > 0){
+                                        alert('Nilai Zakat Fitrah Tidak Seimbang!');
+                                        $('#simpan').prop('disabled', true);  
+                                    //}
+                                }else{
+                                    $('#simpan').prop('disabled', false); 
+                                }
+                              }
+
+                          });
+
+
                         </script>
 
 
@@ -181,7 +231,7 @@
                             <div class="row">
                                 <div class="col-lg-12 text-xs-right">
                                     <a class="btn btn-lg btn-info-outline" href="penyetoran.php"><span class="fa fa-backward"></span> KEMBALI </a>
-                                    <button type="submit" name="simpan" class="btn btn-lg btn-primary">Simpan&nbsp;<span class="fa fa-save"></span></button>
+                                    <button type="submit" name="simpan" class="btn btn-lg btn-primary" id="simpan">Simpan&nbsp;<span class="fa fa-save"></span></button>
                                 </div>
                             </div>
                         </div>
