@@ -12,7 +12,7 @@
 								<h2><span>Olah</span> Zakat</h2>
 								<p>Aplikasi Pengelolaan, Monitoring, Evaluasi Data Zakat (Fitrah/Mal), Infaq Dan Sedaqoh Khusus Kepanitiaan Masjid. Gratis! </p>
 								<a href="register.php" class="site-btn">Coba Gratis</a>
-								<a href="#" class="site-btn sb-c2">Lihat Tutorial</a>
+								<a href="tutorial.php" class="site-btn sb-c2">Lihat Tutorial</a>
 							</div>
 						</div>
 						<div class="col-lg-6">

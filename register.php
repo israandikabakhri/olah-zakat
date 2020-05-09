@@ -12,28 +12,30 @@
 							<h2>Register</h2>
 						</div>
 						<br>
+						Maaf, Untuk Sementara Pendaftaran Aplikasi Ini Di Tutup Sampai Dinyatakan Mencapai Versi Stabil.
+						<br>
 						<form class="contact-from" style="width: 50%">
 							<div class="row">
 								<div class="col-md-12">
-									<input type="text" placeholder="Nama Masjid" name="nama_masjid">
+									<input type="text" placeholder="Nama Masjid" name="nama_masjid" disabled>
 								</div>
 								<div class="col-md-12">
-									<input type="text" placeholder="Alamat Masjid" name="alamat_masjid">
+									<input type="text" placeholder="Alamat Masjid" name="alamat_masjid" disabled>
 								</div>
 								<div class="col-md-12">
-									<input type="text" placeholder="Nomor Hp Pengurus Masjid" name="no_hp">
+									<input type="text" placeholder="Nomor Hp Pengurus Masjid" name="no_hp" disabled>
 								</div>
 								<div class="col-md-12">
-									<input type="text" placeholder="Username" name="username">
+									<input type="text" placeholder="Username" name="username" disabled>
 								</div>
 								<div class="col-md-12">
-									<input type="password" placeholder="Password" name="password">
+									<input type="password" placeholder="Password" name="password" disabled>
 								</div>
 								<div class="col-md-12">
-									<input type="password" placeholder="Ulangi Password" name="password2">
+									<input type="password" placeholder="Ulangi Password" name="password2" disabled>
 								</div>
 								<div class="col-md-12">
-									<button class="site-btn">Daftar</button>
+									<button class="site-btn" disabled>Daftar</button>
 								</div>
 							</div>
 						</form>

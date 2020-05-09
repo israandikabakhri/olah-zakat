@@ -84,6 +84,8 @@
                             </div>
                         </div>
 
+                        <span style="background-color: orange;padding: 5px;color: #fff;display: none;" id="rekomendasi"></span><br>
+
                         <div class="mbr-section-text">
                             <div class='row'>
                                 <div class="col-lg-12">
@@ -194,6 +196,9 @@
                               //alert('c1='+c1+'| c2='+c2+'| c3='+c3)
                               if(c1 > 0 && c2 > 0 && c3 > 0){
                                 
+                                $('#rekomendasi').show();
+                                $('#rekomendasi').html("<b>Rekomendasi:</b> Anda Bisa Menginputkan Zakat Beras Sebanyak <b>"+(c1*c2)+" Liter (Untuk "+c2+" Orang)</b> atau Zakat FItrah Uang <b>Rp. "+formatNumber(c1*c2*c3)+" (Untuk "+c2+" Orang)</b> atau Anda Bisa Memadukan Keduanya Tapi Dengan Nilai Setara.<br>");
+
                                 if(c4 == 0 || c4 == null){ var beraspembagi = c1*c2; var allowc4 = 1; }
                                 else if(c4 > 0){ var beraspembagi = c4; var allowc4 = 0; }
                                 
@@ -218,6 +223,11 @@
                                 }
                               }
 
+                              function formatNumber(num) {
+                                  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+                              }
+
+
                           });
 
 
@@ -230,7 +240,6 @@
 
                             <div class="row">
                                 <div class="col-lg-12 text-xs-right">
-                                    <a class="btn btn-lg btn-info-outline" href="penyetoran.php"><span class="fa fa-backward"></span> KEMBALI </a>
                                     <button type="submit" name="simpan" class="btn btn-lg btn-primary" id="simpan">Simpan&nbsp;<span class="fa fa-save"></span></button>
                                 </div>
                             </div>
