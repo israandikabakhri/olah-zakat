@@ -1,7 +1,7 @@
 
-<div id="scrollToTop" class="scrollToTop mbr-arrow-up" style="display: block;">
+<!-- <div id="scrollToTop" class="scrollToTop mbr-arrow-up" style="display: block;">
 	<a style="text-align: center;"><i class="mbr-arrow-up-icon"></i></a>
-</div>
+</div> -->
 
     <script src="assets/tether.min.js.download"></script>
     <script src="assets/bootstrap.min.js.download"></script>

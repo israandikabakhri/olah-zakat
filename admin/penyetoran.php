@@ -25,7 +25,8 @@
                     <div class="mbr-section-full col-md-12 col-lg-11">
                         <h1 class="mbr-section-title display-2" style="padding-top: 90px;">Data Penerimaan ZIS</h1>
                         
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><a href="tambah_penyetoran.php" name="Update" class="col-xs-12 btn btn-lg btn-warning"><span class="fa fa-plus"></span>&nbsp;TAMBAH PENERIMAAN</a></div>
+<!-- <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"></div> -->
+  <a href="tambah_penyetoran.php" class="btn btn-lg btn-warning"><span class="fa fa-plus"></span>&nbsp;TAMBAH PENERIMAAN</a>
 
 
  <div class="row">

@@ -26,7 +26,7 @@ include("config/connect-db.php");
     <link rel="stylesheet" href="assets/mbr-additional.css" type="text/css"><style>.cke{visibility:hidden;}</style></head><body class="  pace-done" style=""><section id="top-1" class="engine"><a href="https://mobirise.info/">Mobirise</a> Mobirise v4.5.4</section><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
   <div class="pace-progress-inner"></div>
 </div>
-<div class="pace-activity"></div></div>\
+<div class="pace-activity"></div></div>
     <link rel="stylesheet" href="assets/flipclock.css" type="text/css">
     <link href="assets/centerblue.css" rel="stylesheet">
     <link href="assets/main.css" rel="stylesheet">
