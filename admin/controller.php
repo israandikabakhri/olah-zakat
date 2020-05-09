@@ -8,7 +8,7 @@
 
 	$page    = $_GET['page'];
 	$action  = $_GET['action'];    
-	
+
  
     /// PANITIA
 	if($page == "panitia" && $action == "insert")
@@ -107,6 +107,7 @@
 		  $zakat_fitrah_beras  = $_POST['zakat_fitrah_beras'];	  
 		  $harga_beras_dimakan = $_POST['harga_beras_dimakan'];
 		  $zakat_fitrah_uang   = $_POST['zakat_fitrah_uang'];
+		  $zakat_fitrah_uang_  = $_POST['zakat_fitrah_uang'];
 		  $zakat_mal		   = $_POST['zakat_mal'];
 		  $infaq_sedekah       = $_POST['infaq_sedekah'];
 		  $arah_infaqsedekah   = $_POST['arah_infaqsedekah'];
@@ -114,10 +115,10 @@
 
 		  $result = mysqli_query($mysqli, "INSERT INTO tb_setoran_zis 
 		  	                                (id, id_user, tgl, nama_muzakki, alamat, jumlah_jiwa, zakat_fitrah_beras, harga_beras_dimakan,
-		  	                                zakat_fitrah_uang, zakat_mal, infaq_sedekah, arah_infaqsedekah, fidyah) 
+		  	                                zakat_fitrah_uang, zakat_mal, infaq_sedekah, arah_infaqsedekah, fidyah, zakat_fitrah_uang_) 
 			                                VALUES
 			                                (null, $id_user, '$tgl', '$nama_muzakki', '$alamat', '$jumlah_jiwa', '$zakat_fitrah_beras', 
-			                                '$harga_beras_dimakan', '$zakat_fitrah_uang', '$zakat_mal', '$infaq_sedekah', '$arah_infaqsedekah', '$fidyah')");
+			                                '$harga_beras_dimakan', '$zakat_fitrah_uang', '$zakat_mal', '$infaq_sedekah', '$arah_infaqsedekah', '$fidyah', '$zakat_fitrah_uang_')");
 		  
 		  if($result){ 
 		      echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/penyetoran.php" </script>';
