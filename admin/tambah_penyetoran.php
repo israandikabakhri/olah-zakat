@@ -229,30 +229,6 @@
                           });
 
 
-                                // if(c4 == 0 || c4 == null){ var beraspembagi = c1*c2; var allowc4 = 1; }
-                                // else if(c4 > 0){ var beraspembagi = c4; var allowc4 = 0; }
-                                
-                                // if(c5 == 0 || c5 == null){ var uangpembagi = c1*c3*c2; var allowc5 = 1; }
-                                // else if(c5 > 0){ var uangpembagi = c5; var allowc5 = 0; }
-
-                                // var beras = (c1*c2)/beraspembagi;
-                                // var uang  = (c1*c3*c2)/uangpembagi;  
-                                
-                                // if(allowc4 == 1){beras == uang;}
-                                // else if(allowc5 == 1){uang == beras;}
-
-                                // alert(beras+' && '+uang);  
-                                // alert(allowc4+' && '+allowc5);  
-
-                                // if(beras != uang){
-                                //     //if(c4 > 0 || c5 > 0){
-                                //         alert('Nilai Zakat Fitrah Tidak Seimbang!');
-                                //         $('#simpan').prop('disabled', true);  
-                                //     //}
-                                // }else{
-                                //     $('#simpan').prop('disabled', false); 
-                                // }
-
                         </script>
 
 
