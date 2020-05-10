@@ -91,7 +91,14 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         Total Jumlah Zakat Beras (Liter)
-                                        <input type="number" class="form-control balance" name="zakat_fitrah_beras" placeholder="Total Jumlah Zakat Beras.." required onkeypress="return onlyNumbers();" value="" min="0" id="c4">
+                                        <!-- <input type="number" class="form-control balance" name="zakat_fitrah_beras" placeholder="Total Jumlah Zakat Beras.." required onkeypress="return onlyNumbers();" value="" min="0" id="c4"> -->
+                                        <select name="zakat_fitrah_beras" id="c4" class="form-control balance">
+                                            <option value="">-- PILIH --</option>
+                                            <option value="0">0 Liter</option>
+                                            <?php for ($i=1; $i <= 25; $i++) { 
+                                                echo '<option value="'.$i*$d['set_beras_muzakki'].'">'.$i*$d['set_beras_muzakki'].' Liter</option>';
+                                            } ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +110,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         Total Jumlah Zakat Uang (Rp)
-                                        <input type="number" class="form-control balance" name="zakat_fitrah_uang" placeholder="Total Jumlah Zakat Uang.." required onkeypress="return onlyNumbers();" value="" min="0" id="c5">
+                                        <input type="number" class="form-control balance" name="zakat_fitrah_uang" placeholder="Total Jumlah Zakat Uang.." required onkeypress="return onlyNumbers();" value="" min="0" id="c5"> 
                                     </div>
                                 </div>
                             </div>
@@ -187,11 +194,11 @@
                           //untuk validasi keseimbanngan zakat fitrah
                           
                           $('.balance').on('change', function () {
-                              var c1 = $('#c1').val();
-                              var c2 = $('#c2').val();
-                              var c3 = $('#c3').val();
-                              var c4 = $('#c4').val();
-                              var c5 = $('#c5').val();
+                              var c1 = $('#c1').val(); // beras per org
+                              var c2 = $('#c2').val(); // jmlh org dalam kk
+                              var c3 = $('#c3').val(); // harga beras
+                              var c4 = $('#c4').val(); // tot beras
+                              var c5 = $('#c5').val(); // tot uang
 
                               //alert('c1='+c1+'| c2='+c2+'| c3='+c3)
                               if(c1 > 0 && c2 > 0 && c3 > 0){
@@ -199,28 +206,19 @@
                                 $('#rekomendasi').show();
                                 $('#rekomendasi').html("<b>Rekomendasi:</b> Anda Bisa Menginputkan Zakat Beras Sebanyak <b>"+(c1*c2)+" Liter (Untuk "+c2+" Orang)</b> atau Zakat FItrah Uang <b>Rp. "+formatNumber(c1*c2*c3)+" (Untuk "+c2+" Orang)</b> atau Anda Bisa Memadukan Keduanya Tapi Dengan Nilai Setara.<br>");
 
-                                if(c4 == 0 || c4 == null){ var beraspembagi = c1*c2; var allowc4 = 1; }
-                                else if(c4 > 0){ var beraspembagi = c4; var allowc4 = 0; }
-                                
-                                if(c5 == 0 || c5 == null){ var uangpembagi = c1*c3*c2; var allowc5 = 1; }
-                                else if(c5 > 0){ var uangpembagi = c5; var allowc5 = 0; }
+                                 var beras = c4/c1;
+                                 var uang  = (c5/c3)/c1;
+                                 var berasuang = beras + uang;
 
-                                var beras = (c1*c2)/beraspembagi;
-                                var uang  = (c1*c3*c2)/uangpembagi;  
-                                
-                                if(allowc4 == 1){beras == uang}
-                                else if(allowc5 == 1){uang == beras}
-
-                                //alert(beras+' && '+uang);  
-
-                                if(beras != uang){
-                                    //if(c4 > 0 || c5 > 0){
+                                 if(berasuang == c2){
+                                     $('#simpan').prop('disabled', false); 
+                                 }else{
+                                     if(c4 != "" && c5 != ""){
                                         alert('Nilai Zakat Fitrah Tidak Seimbang!');
-                                        $('#simpan').prop('disabled', true);  
-                                    //}
-                                }else{
-                                    $('#simpan').prop('disabled', false); 
-                                }
+                                        $('#simpan').prop('disabled', true);
+                                     }   
+                                 }
+
                               }
 
                               function formatNumber(num) {
@@ -230,6 +228,30 @@
 
                           });
 
+
+                                // if(c4 == 0 || c4 == null){ var beraspembagi = c1*c2; var allowc4 = 1; }
+                                // else if(c4 > 0){ var beraspembagi = c4; var allowc4 = 0; }
+                                
+                                // if(c5 == 0 || c5 == null){ var uangpembagi = c1*c3*c2; var allowc5 = 1; }
+                                // else if(c5 > 0){ var uangpembagi = c5; var allowc5 = 0; }
+
+                                // var beras = (c1*c2)/beraspembagi;
+                                // var uang  = (c1*c3*c2)/uangpembagi;  
+                                
+                                // if(allowc4 == 1){beras == uang;}
+                                // else if(allowc5 == 1){uang == beras;}
+
+                                // alert(beras+' && '+uang);  
+                                // alert(allowc4+' && '+allowc5);  
+
+                                // if(beras != uang){
+                                //     //if(c4 > 0 || c5 > 0){
+                                //         alert('Nilai Zakat Fitrah Tidak Seimbang!');
+                                //         $('#simpan').prop('disabled', true);  
+                                //     //}
+                                // }else{
+                                //     $('#simpan').prop('disabled', false); 
+                                // }
 
                         </script>
 
