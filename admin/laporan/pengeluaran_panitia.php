@@ -63,6 +63,21 @@
                                   <td data-label="Harga Satuan"><center>Rp. <?php echo number_format($data['harga_satuan']); ?></td>
                                   <td data-label="Total Pengeluaran"><center>Rp. <?php echo number_format($data['tot_pengeluaran']); ?></td>
                                 </tr>
+                              <?php $no++; } 
+
+                                $dtx = mysqli_query($mysqli, "SELECT * FROM tb_panitia_zis WHERE id_user = $id");
+                                while($xcv = mysqli_fetch_array($dtx)){
+                                $tot = $tot+$xcv['intensif'];
+                              ?>
+                                <tr>
+                                  <td data-label="No" scope="row"><center><?php echo $no; ?></td>
+                                  <td data-label="Tanggal"><center><?php echo TanggalIndo($xcv['updated_at']); ?></td>
+                                  <td data-label="Uraian">Intensif Panitia (<?php echo $xcv['nama']; ?>)</td>
+                                  <td data-label="Sumber Pengeluaran"><center><?php echo $xcv['sumber_pengeluaran']; ?></td>
+                                  <td data-label="Jumlah"><center>-</td>
+                                  <td data-label="Harga Satuan"><center>-</td>
+                                  <td data-label="Total Pengeluaran"><center>Rp. <?php echo number_format($xcv['intensif']); ?></td>
+                                </tr>
                               <?php $no++; } ?>
 
 		  <tr>

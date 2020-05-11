@@ -98,12 +98,32 @@
                             <div class='row'>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        Intensif
+                                        Intensif (Rp)
                                         <input type="number" onkeypress="return onlyNumbers();" class="form-control" name="intensif" placeholder="Intensif Panitia Zakat.." required>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+
+                        <div class="mbr-section-text">
+                            <div class='row'>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        Sumber Pengeluaran
+                                        <select class="form-control" name="sumber_pengeluaran">
+                                            <option value="">--- PILIH ---</option>
+                                            <option value="ZAKAT FITRAH UANG">ZAKAT FITRAH UANG</option>
+                                            <option value="ZAKAT MAAL">ZAKAT MAAL</option>
+                                            <option value="INFAQ/SEDEKAH (YANG KE MASJID)">INFAQ/SEDEKAH (YANG KE MASJID)</option>
+                                            <option value="KAS MASJID">KAS MASJID</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
 
                         <div class="mbr-section-text">
 

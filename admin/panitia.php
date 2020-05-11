@@ -49,7 +49,7 @@
                                   <td data-label="Jabatan"><?php echo $data['jabatan']; ?></td>
                                   <td data-label="TTD #1"><?php echo $data['set_ttd1']; ?></td>
                                   <td data-label="TTD #2"><?php echo $data['set_ttd2']; ?></td>
-                                  <td data-label="Intensif">Rp. <?php echo $data['intensif']; ?></td>
+                                  <td data-label="Intensif">Rp. <?php echo number_format($data['intensif'],0).'<br><b>('.$data['sumber_pengeluaran'].')'; ?></td>
                                   
                                   <td data-label="Aksi">
                                     <a href="edit_panitia.php?id=<?php echo $data['id']; ?>" class="btn btn-success">Edit</a>

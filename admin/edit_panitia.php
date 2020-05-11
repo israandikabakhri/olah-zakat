@@ -115,13 +115,32 @@
                             <div class='row'>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        Intensif
+                                        Intensif (Rp)
                                         <input type="number" onkeypress="return onlyNumbers();" class="form-control" name="intensif" placeholder="Intensif Panitia Zakat.." value="<?php echo $d['intensif']; ?>" required>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+
+                        <div class="mbr-section-text">
+                            <div class='row'>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        Sumber Pengeluaran
+                                        <select class="form-control" name="sumber_pengeluaran">
+                                            <option value="">--- PILIH ---</option>
+                                            <option value="ZAKAT FITRAH UANG" <?php if($d['sumber_pengeluaran']=="ZAKAT FITRAH UANG"){echo'selected';} ?> >ZAKAT FITRAH UANG</option>
+                                            <option value="ZAKAT MAAL" <?php if($d['sumber_pengeluaran']=="ZAKAT MAAL"){echo'selected';} ?> >ZAKAT MAAL</option>
+                                            <option value="INFAQ/SEDEKAH (YANG KE MASJID)"  <?php if($d['sumber_pengeluaran']=="INFAQ/SEDEKAH (YANG KE MASJID)"){echo'selected';} ?> >INFAQ/SEDEKAH (YANG KE MASJID)</option>
+                                            <option value="KAS MASJID" <?php if($d['sumber_pengeluaran']=="KAS MASJID"){echo'selected';} ?> >KAS MASJID</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
                         <div class="mbr-section-text">
 
             

@@ -14,15 +14,16 @@
 	if($page == "panitia" && $action == "insert")
 	{
 		  
-		  $id_user  = $_SESSION['id'];
-		  $nama     = $_POST['nama'];
-		  $jabatan  = $_POST['jabatan'];
-		  $set_ttd1 = $_POST['set_ttd1'];
-		  $set_ttd2 = $_POST['set_ttd2'];
-		  $intensif = $_POST['intensif'];
+		  $id_user  		  = $_SESSION['id'];
+		  $nama     		  = $_POST['nama'];
+		  $jabatan  		  = $_POST['jabatan'];
+		  $set_ttd1 		  = $_POST['set_ttd1'];
+		  $set_ttd2 		  = $_POST['set_ttd2'];
+		  $intensif 		  = $_POST['intensif'];
+		  $sumber_pengeluaran = $_POST['sumber_pengeluaran'];
 
-		  $result = mysqli_query($mysqli, "INSERT INTO tb_panitia_zis (id, id_user, nama, jabatan, set_ttd1, set_ttd2, intensif) 
-			                               VALUES(null, $id_user, '$nama', '$jabatan', '$set_ttd1', '$set_ttd2', '$intensif')");
+		  $result = mysqli_query($mysqli, "INSERT INTO tb_panitia_zis (id, id_user, nama, jabatan, set_ttd1, set_ttd2, intensif, sumber_pengeluaran) 
+			                               VALUES(null, $id_user, '$nama', '$jabatan', '$set_ttd1', '$set_ttd2', '$intensif', '$sumber_pengeluaran')");
 		  
 		  if($result){ 
 		      echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/panitia.php" </script>';
@@ -34,22 +35,24 @@
 	}elseif($page == "panitia" && $action == "update")
 	{
 
-		  $id       = $_POST['id'];
-		  $nama     = $_POST['nama'];
-		  $jabatan  = $_POST['jabatan'];
-		  $set_ttd1 = $_POST['set_ttd1'];
-		  $set_ttd2 = $_POST['set_ttd2'];
-		  $intensif = $_POST['intensif'];
+		  $id                 = $_POST['id'];
+		  $nama     		  = $_POST['nama'];
+		  $jabatan  		  = $_POST['jabatan'];
+		  $set_ttd1 		  = $_POST['set_ttd1'];
+		  $set_ttd2 		  = $_POST['set_ttd2'];
+		  $intensif 		  = $_POST['intensif'];
+		  $sumber_pengeluaran = $_POST['sumber_pengeluaran'];
 
 
 
 				  $result = mysqli_query($mysqli, "UPDATE tb_panitia_zis
 				  									SET 
-				  									   nama     = '$nama',
-				  									   jabatan  = '$jabatan',
-				  									   set_ttd1 = '$set_ttd1',
-				  									   set_ttd2 = '$set_ttd2',
-				  									   intensif = '$intensif'
+				  									   nama     		  = '$nama',
+				  									   jabatan  		  = '$jabatan',
+				  									   set_ttd1 		  = '$set_ttd1',
+				  									   set_ttd2 		  = '$set_ttd2',
+				  									   intensif 		  = '$intensif',
+				  									   sumber_pengeluaran = '$sumber_pengeluaran'
 				  									   WHERE id = $id
 				  									") or die(mysqli_error($mysqli));
 
