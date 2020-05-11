@@ -79,6 +79,15 @@
                                   </td>
                                 </tr>
 
+                                <tr>
+                                  <td data-label="No" scope="row" >3</td>
+                                  <td data-label="Nama Laporam">Laporan Pengeluaran Panitia</td>
+                                  <td data-label="Aksi">
+                                    <a href="laporan/pengeluaran_panitia.php" target="_blank" class="btn btn-success">Cetak</a>
+                                  </td>
+                                </tr>
+
+
                               </tbody>
 
                             </table>
