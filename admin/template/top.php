@@ -120,6 +120,7 @@ include("config/connect-db.php");
                             <li class="nav-item"><a class="nav-link link" href="index.php">Beranda</a></li>
                             <li class="nav-item"><a class="nav-link link" href="edit_user.php">Data Masjid</a></li>
                             <li class="nav-item"><a class="nav-link link" href="panitia.php">Data Panitia</a></li> 
+                            <li class="nav-item"><a class="nav-link link" href="pengeluaran_panitia.php">Pengeluaran Panitia</a></li> 
                             <li class="nav-item"><a class="nav-link link" href="#">|</a></li> 
                             <li class="nav-item"><a class="nav-link link" href="penyetoran.php">Penerimaan</a></li>
                             <li class="nav-item"><a class="nav-link link" href="penerima.php">Penyaluran</a></li>

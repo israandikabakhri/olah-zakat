@@ -276,6 +276,101 @@
 		      echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/penerima.php?s=bad&d='.$data['t'].'" </script>';
 		  }
 
+
+    // pengeluaran panitia 
+	}elseif($page == "pengeluaran_panitia" && $action == "insert")
+	{
+		  
+
+		  $id_user            = $_SESSION['id'];
+		  $uraian             = $_POST['uraian'];
+		  $tgl                = $_POST['tgl'];
+		  $jumlah             = $_POST['jumlah'];
+		  $satuan             = $_POST['satuan'];
+		  $harga_satuan       = $_POST['harga_satuan'];
+		  $tot_pengeluaran    = $_POST['jumlah']*$_POST['harga_satuan'];
+		  $sumber_pengeluaran = $_POST['sumber_pengeluaran'];
+
+
+		  $result = mysqli_query($mysqli, "INSERT INTO tb_pengeluaran_panitia (id, id_user, uraian, tgl, jumlah, satuan, harga_satuan, tot_pengeluaran, sumber_pengeluaran) 
+			                               VALUES(null, $id_user, '$uraian', '$tgl', $jumlah, '$satuan', $harga_satuan, $tot_pengeluaran, '$sumber_pengeluaran')");
+		  
+		  if($result){ 
+		      echo '<script language="javascript"> window.location.href = "'.$base_url_back.'/pengeluaran_panitia.php" </script>';
+		  }else{
+		      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+		  }
+	  
+
+	}elseif($page == "pengeluaran_panitia" && $action == "update")
+	{
+
+		  $id                 = $_POST['id'];
+		  $uraian             = $_POST['uraian'];
+		  $tgl                = $_POST['tgl'];
+		  $jumlah             = $_POST['jumlah'];
+		  $satuan             = $_POST['satuan'];
+		  $harga_satuan       = $_POST['harga_satuan'];
+		  $tot_pengeluaran    = $_POST['jumlah']*$_POST['harga_satuan'];
+		  $sumber_pengeluaran = $_POST['sumber_pengeluaran'];
+
+
+
+				  $result = mysqli_query($mysqli, "UPDATE tb_pengeluaran_panitia
+				  									SET 
+				  									   uraian              = '$uraian',
+				  									   tgl                 = '$tgl',
+				  									   jumlah              = $jumlah,
+				  									   satuan       	   = '$satuan',
+				  									   harga_satuan 	   = $harga_satuan,
+				  									   tot_pengeluaran 	   = $tot_pengeluaran,
+				  									   sumber_pengeluaran  = '$sumber_pengeluaran'
+				  									   WHERE id = $id
+				  									") or die(mysqli_error($mysqli));
+
+
+
+		  
+		  if(isset($result)){ 
+
+		      		echo '<script language="javascript"> 
+		      				window.location.href = "'.$base_url_back.'/pengeluaran_panitia.php" 
+		      			 </script>';
+
+		  }else{
+
+			      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+			  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
+			  
+		  
+		  }
+
+
+	}elseif($page == "pengeluaran_panitia" && $action == "delete")
+	{
+
+		  $ID = $_GET['id'];
+
+
+				  $result = mysqli_query($mysqli, "DELETE FROM tb_pengeluaran_panitia WHERE id = $ID
+				  									") or die(mysqli_error($mysqli));
+
+		  
+		  if(isset($result)){ 
+
+		      		echo '<script language="javascript"> 
+		      				window.location.href = "'.$base_url_back.'/pengeluaran_panitia.php" 
+		      			 </script>';
+
+		  }else{
+
+			      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+			  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
+			  
+		  
+		  }
+
+
 	
 	}
 	
