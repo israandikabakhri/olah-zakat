@@ -79,22 +79,35 @@
 		  $ID = $_GET['id'];
 
 
-				  $result = mysqli_query($mysqli, "DELETE FROM tb_panitia_zis WHERE id = $ID
-				  									") or die(mysqli_error($mysqli));
+		  $cek = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_panitia_zis WHERE id = $ID AND id_user = $_SESSION[id]
+				  						  ") or die(mysqli_error($mysqli));
+		  $crosscek = mysqli_fetch_array($dt);
+		  if($crosscek['tot'] > 0){
 
-		  
-		  if(isset($result)){ 
 
-		      		echo '<script language="javascript"> 
-		      				window.location.href = "'.$base_url_back.'/panitia.php" 
-		      			 </script>';
+			  $result = mysqli_query($mysqli, "DELETE FROM tb_panitia_zis WHERE id = $ID
+					  						  ") or die(mysqli_error($mysqli));
+
+			  
+			  if(isset($result)){ 
+
+			      		echo '<script language="javascript"> 
+			      				window.location.href = "'.$base_url_back.'/panitia.php" 
+			      			 </script>';
+
+			  }else{
+
+				      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+				  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
+				  			  
+			  }
 
 		  }else{
 
-			      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
-			  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
-			  
-		  
+			      		echo '<script language="javascript"> 
+			      		        alert("Anda Mencoba Mengakses Data Yang Bukan Hak Anda!");
+			      				window.location.href = "'.$base_url_back.'/panitia.php" 
+			      			 </script>';
 		  }
 
 
@@ -186,24 +199,39 @@
 
 		  $ID = $_GET['id'];
 
+		  $cek = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_setoran_zis WHERE id = $ID AND id_user = $_SESSION[id]
+				  						  ") or die(mysqli_error($mysqli));
+		  $crosscek = mysqli_fetch_array($dt);
+		  if($crosscek['tot'] > 0){
 
-				  $result = mysqli_query($mysqli, "DELETE FROM tb_setoran_zis WHERE id = $ID
-				  									") or die(mysqli_error($mysqli));
 
-		  
-		  if(isset($result)){ 
+			  $result = mysqli_query($mysqli, "DELETE FROM tb_setoran_zis WHERE id = $ID
+					  									") or die(mysqli_error($mysqli));
 
-		      		echo '<script language="javascript"> 
-		      				window.location.href = "'.$base_url_back.'/penyetoran.php" 
-		      			 </script>';
+			  
+			  if(isset($result)){ 
+
+			      		echo '<script language="javascript"> 
+			      				window.location.href = "'.$base_url_back.'/penyetoran.php" 
+			      			 </script>';
+
+			  }else{
+
+				      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+				  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
+				  
+			  
+			  }
 
 		  }else{
 
-			      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
-			  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
-			  
-		  
+			      		echo '<script language="javascript"> 
+			      		        alert("Anda Mencoba Mengakses Data Yang Bukan Hak Anda!");
+			      				window.location.href = "'.$base_url_back.'/penyetoran.php" 
+			      			 </script>';
 		  }
+
+
 
 
 	
@@ -355,23 +383,38 @@
 		  $ID = $_GET['id'];
 
 
-				  $result = mysqli_query($mysqli, "DELETE FROM tb_pengeluaran_panitia WHERE id = $ID
-				  									") or die(mysqli_error($mysqli));
+		  $cek = mysqli_query($mysqli, "SELECT COUNT(*) as tot FROM tb_pengeluaran_panitia WHERE id = $ID AND id_user = $_SESSION[id]
+				  						  ") or die(mysqli_error($mysqli));
+		  $crosscek = mysqli_fetch_array($dt);
+		  if($crosscek['tot'] > 0){
+			  
+			  $result = mysqli_query($mysqli, "DELETE FROM tb_pengeluaran_panitia WHERE id = $ID
+					  									") or die(mysqli_error($mysqli));
 
+			  
+			  if(isset($result)){ 
+
+			      		echo '<script language="javascript"> 
+			      				window.location.href = "'.$base_url_back.'/pengeluaran_panitia.php" 
+			      			 </script>';
+
+			  }else{
+
+				      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+				  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
+				  
+			  
+			  }
 		  
-		  if(isset($result)){ 
-
-		      		echo '<script language="javascript"> 
-		      				window.location.href = "'.$base_url_back.'/pengeluaran_panitia.php" 
-		      			 </script>';
-
 		  }else{
 
-			      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
-			  	  echo "<br><br><a href='artikel.php'>Kembali</a>";
-			  
-		  
+			      		echo '<script language="javascript"> 
+			      		        alert("Anda Mencoba Mengakses Data Yang Bukan Hak Anda!");
+			      				window.location.href = "'.$base_url_back.'/pengeluaran_panitia.php" 
+			      			 </script>';
 		  }
+
+
 
 
 	
